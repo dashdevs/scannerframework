@@ -23,6 +23,8 @@ Pod::Spec.new do |s|
     'ScannerFramework' => ['ScannerFramework/Assets/*.png']
   }
 
+  s.swift_version = '5.0'
+  
   s.dependency 'DashdevsNetworking'
   s.dependency 'SwiftGen'
 end
