@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ScannerFramework'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'ScannerFramework for GoodsScanner & ReceiptScan'
   s.homepage         = 'https://dashdevs.com'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.source_files = 'ScannerFramework/Classes/**/*'
   
   s.resource_bundles = {
-      'ScannerFramework' => ['ScannerFramework/Assets/*.{xcassets,storyboard,xib}']
+      'ScannerFramework' => ['ScannerFramework/Assets/**/*.{xcassets,storyboard,xib}']
   }
 
   s.swift_version = '5.0'
