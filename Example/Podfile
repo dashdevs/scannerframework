@@ -1,0 +1,6 @@
+use_frameworks!
+target 'ScannerFramework_Tests' do
+  pod 'ScannerFramework', :path => '../'
+  
+  
+end
