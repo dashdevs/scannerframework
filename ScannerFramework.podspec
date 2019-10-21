@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.source_files = 'ScannerFramework/Classes/**/*'
   
   s.resource_bundles = {
-    'ScannerFramework' => ['ScannerFramework/Assets/*.png']
+      'ScannerFramework' => ['ScannerFramework/Assets/*.{xcassets,storyboard,xib}']
   }
 
   s.swift_version = '5.0'
