@@ -180,10 +180,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ScannerFramework_Tests/Pods-ScannerFramework_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DashdevsNetworking/DashdevsNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/ScannerFramework/ScannerFramework.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DashdevsNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScannerFramework.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

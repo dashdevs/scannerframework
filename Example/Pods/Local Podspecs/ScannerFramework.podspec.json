@@ -1,0 +1,34 @@
+{
+  "name": "ScannerFramework",
+  "version": "0.1.0",
+  "summary": "ScannerFramework for GoodsScanner & ReceiptScan",
+  "homepage": "https://dashdevs.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "dashdevs llc": "hello@dashdevs.com"
+  },
+  "source": {
+    "git": "https://bitbucket.org/itomych/ScannerFramework.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "ScannerFramework/Classes/**/*",
+  "resource_bundles": {
+    "ScannerFramework": [
+      "ScannerFramework/Assets/*.png"
+    ]
+  },
+  "dependencies": {
+    "DashdevsNetworking": [
+
+    ],
+    "SwiftGen": [
+
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+    </dependencies>
+    <scenes>
+        <!--Document Viewer View Controller-->
+        <scene sceneID="dEk-hL-UrL">
+            <objects>
+                <viewController storyboardIdentifier="DocumentViewer" hidesBottomBarWhenPushed="YES" id="afC-K6-ldW" customClass="DocumentViewerViewController" customModule="NewReceiptScan" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="PMa-hM-38x">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Item" image="camera" id="afk-QR-jkQ">
+                            <connections>
+                                <action selector="onCameraTap:" destination="afC-K6-ldW" id="MyL-Qq-jkl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="cameraButton" destination="afk-QR-jkQ" id="FDs-vH-Ckj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ykR-p4-yZ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="251" y="-537"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera" width="26" height="21"/>
+    </resources>
+</document>

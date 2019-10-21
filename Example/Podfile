@@ -1,4 +1,8 @@
+source 'https://bitbucket.org/itomych/ddspecs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
 use_frameworks!
+
 target 'ScannerFramework_Tests' do
   pod 'ScannerFramework', :path => '../'
   

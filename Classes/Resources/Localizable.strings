@@ -1,0 +1,102 @@
+/* 
+  Localizable.strings
+  NewReceiptScan
+
+  Created by Alexander Kozlov on 9/26/19.
+  Copyright © 2019 iTomych. All rights reserved.
+*/
+
+"profile_title" = "Профиль";
+"pricetag_title" = "Ценники";
+"inventory_title" = "Инвентаризация";
+
+"ok_button_title" = "Ок";
+"done_title" = "Готово";
+"settings_button_title" = "Настройки";
+
+// Auth
+"auth_title" = "Авторизация";
+"email_auth_title" = "ПО ЭЛЕКТРОННОЙ ПОЧТЕ";
+"or_title" = "или";
+"phone_auth_title" = "ПО НОМЕРУ ТЕЛЕФОНА";
+
+"email_auth_description" = "Введите ваш адрес электронной почты и нажмите кнопку «Получить код»";
+"email_placeholder" = "Адрес электронной почты";
+"get_link_title" = "ПОЛУЧИТЬ КОД";
+
+"email_confirm_description" = "На ваш почтовый ящик было отправлено письмо с кодом подтверждения. Пожалуйста, введите его в поле ниже.";
+"not_receive_code_title" = "Не получили код?";
+
+"phone_auth_description" = "Введите ваш номер телефона и нажмите кнопку «Получить код»";
+"get_code_title" = "ПОЛУЧИТЬ КОД";
+
+"phone_confirm_description" = "На Ваш номер телефона был отправлен код подтверждения. Пожалуйста, введите его ниже.";
+"log_in_title" = "ВОЙТИ";
+
+"timer_email_messags" = "Вы можете отправить email еще раз через %@";
+"timer_code_message" = "Вы можете отправить код еще раз через %@";
+"seconds_title" = "секунд";
+"minutes_title" = "минут";
+"resend_code_title" = "Отправить код еще раз";
+
+"error_wrong_email" = "Неверный формат.\nПроверьте Ваш email";
+
+"branch_title" = "Филиал";
+"search_branch_placeholder" = "Поиск филиала";
+"search_placeholder" = "Поиск";
+
+"camera_title" = "Камера";
+
+"act_error" = "Не могу создать акт!";
+"print_error" = "Не могу выполнить печать!";
+
+"camera_description_title" = "Для сканирования приложению необходим доступ к камере.";
+"scanner_title" = "Сканирование";
+"scanner_hint" = "Разместите штрихкод в рамке чтобы отсканировать";
+"manual_code_title" = "РУЧНОЙ ВВОД";
+
+"back_title" = "Назад";
+"product_search_placeholder" = "Название или штрихкод";
+"send_print_title" = "Отправить в печать";
+
+"completed_title" = "ОБРАБОТАННЫЕ";
+"incomplete_title" = "НЕ ОБРАБОТАННЫЕ";
+
+"orders_filter_title" = "Фильтр";
+"start_date_title" = "Дата начала:";
+"end_date_title" = "Дата окончания:";
+
+"cancel_title" = "Отмена";
+"confirm_title" = "Подвтердить";
+"act_title" = "Акт";
+"inv_button_title" = "ИНВ";
+"act_save_button_title" = "Сохранить";
+"legal_entity_title" = "ЮРИДИЧЕСКОЕ ЛИЦО";
+"goods_title" = "ТОВАРЫ";
+"legal_entity_placeholder" = "Выберите юридическое лицо";
+"add_goods_title" = "Добавить товары";
+"add_goods_hint" = "Здесь будут показаны все товары, которые вы добавите в заявку";
+"inventory_info_format" = "до %@ • %@";
+"delete_title" = "Удалить";
+"delete_alert_title" = "Удаление товара";
+"delete_alert_description" = "Вы уверены, что хотите удалить товар из списка инвентаризации?";
+
+"legal_entity_screen_title" = "Юр. лицо";
+"legal_entity_search_placeholder" = "Поиск юридического лица";
+
+"due_data" = "Cрок реализации";
+"quantitiy_label" = "Количество";
+"add_to_act_title" = "Добавить в акт";
+"success_act_title" = "Акт сформирован";
+"success_act_message" = "Прикрепите фото для завершения инвентаризации!";
+
+"print_act_job_title" = "Печать акта";
+
+"documents_title" = "Документы";
+"photo_description" = "Для получения фотографии приложению необходим доступ к камере.";
+"delete_confirmation_title" = "Удалить %@";
+
+"one_uk_male" = "один ";
+"one_uk_female" = "одна ";
+"two_uk_male" = "два ";
+"two_uk_female" = "дві ";

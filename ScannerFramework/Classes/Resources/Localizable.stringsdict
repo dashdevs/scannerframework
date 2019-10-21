@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>count photos</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@photo@</string>
+		<key>photo</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>u</string>
+			<key>zero</key>
+			<string>%u фотографий</string>
+			<key>one</key>
+			<string>%u фотографию</string>
+			<key>few</key>
+			<string>%u фотографии</string>
+			<key>many</key>
+			<string>%u фотографий</string>
+			<key>other</key>
+			<string>%u фотографии</string>
+		</dict>
+	</dict>
+	<key>hryvna count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@hryvna@</string>
+		<key>hryvna</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>zero</key>
+			<string>гривень</string>
+			<key>one</key>
+			<string>гривня</string>
+			<key>few</key>
+			<string>гривні</string>
+			<key>many</key>
+			<string>гривень</string>
+			<key>other</key>
+			<string>гривні</string>
+		</dict>
+	</dict>
+	<key>cent count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@cent@</string>
+		<key>cent</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>zero</key>
+			<string>копiйок</string>
+			<key>one</key>
+			<string>копiйка</string>
+			<key>few</key>
+			<string>копiйки</string>
+			<key>many</key>
+			<string>копiйок</string>
+			<key>other</key>
+			<string>копiйок</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

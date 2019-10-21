@@ -1,0 +1,6 @@
+framework module ScannerFramework {
+  umbrella header "ScannerFramework-umbrella.h"
+
+  export *
+  module * { export * }
+}
