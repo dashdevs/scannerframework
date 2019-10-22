@@ -65,6 +65,8 @@ internal enum L10n {
   internal static let emailPlaceholder = L10n.tr("Localizable", "email_placeholder")
   /// Дата окончания:
   internal static let endDateTitle = L10n.tr("Localizable", "end_date_title")
+  /// Доступ в приложение запрещен!
+  internal static let errorAccessAllowed = L10n.tr("Localizable", "error_access_allowed")
   /// Неверный формат.\nПроверьте Ваш email
   internal static let errorWrongEmail = L10n.tr("Localizable", "error_wrong_email")
   /// ПОЛУЧИТЬ КОД

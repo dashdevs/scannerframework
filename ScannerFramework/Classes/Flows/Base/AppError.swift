@@ -11,6 +11,7 @@ import Foundation
 public enum AppError: Error, LocalizedError {
     case cantPrint
     case cantCreateAct
+    case accessDisabled
     
     public var errorDescription: String? {
         switch self {
@@ -19,6 +20,9 @@ public enum AppError: Error, LocalizedError {
             
         case .cantCreateAct:
             return L10n.actError
+            
+        case .accessDisabled:
+            return L10n.errorAccessAllowed
         }
     }
 }

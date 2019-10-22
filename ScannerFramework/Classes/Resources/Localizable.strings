@@ -41,6 +41,8 @@
 
 "error_wrong_email" = "Неверный формат.\nПроверьте Ваш email";
 
+"error_access_allowed" = "Доступ в приложение запрещен!";
+
 "branch_title" = "Филиал";
 "search_branch_placeholder" = "Поиск филиала";
 "search_placeholder" = "Поиск";
