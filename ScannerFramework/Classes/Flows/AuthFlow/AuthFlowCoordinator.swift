@@ -13,7 +13,7 @@ public protocol Coordinator {
 }
 
 extension NSNotification.Name {
-    static let logout = NSNotification.Name("logout")
+    static public let logout = NSNotification.Name("logout")
 }
 
 public final class AuthFlowCoordinator: Coordinator {

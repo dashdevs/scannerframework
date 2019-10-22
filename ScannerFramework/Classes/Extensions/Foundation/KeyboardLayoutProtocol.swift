@@ -13,7 +13,7 @@ private struct Constants {
     static let animationDuration: TimeInterval = 0.2
 }
 
-protocol KeyboardLayoutDelegate: AnyObject {
+public protocol KeyboardLayoutDelegate: AnyObject {
     func keyboardWillShow(in rect: CGRect, duration: TimeInterval)
     func keyboardWillHide(for duration: TimeInterval)
 }
