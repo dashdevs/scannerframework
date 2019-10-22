@@ -1,6 +1,6 @@
 PODS:
   - DashdevsNetworking (0.0.7)
-  - ScannerFramework (0.1.0):
+  - ScannerFramework (0.1.7):
     - DashdevsNetworking
     - SwiftGen
   - SwiftGen (6.1.0)
@@ -9,7 +9,7 @@ DEPENDENCIES:
   - ScannerFramework (from `../`)
 
 SPEC REPOS:
-  https://bitbucket.org/itomych/ddspecs.git:
+  https://bitbucket.org/itomych/ddspecs:
     - DashdevsNetworking
   https://github.com/cocoapods/specs.git:
     - SwiftGen
@@ -20,7 +20,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   DashdevsNetworking: 202f7d7ab2f96e4fb32b411d3479187de21d1850
-  ScannerFramework: a362333ffa79a83182d17f4984220abea2739f87
+  ScannerFramework: c3b40b8fee07077407ce31e7bc875bffa03d4278
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
 
 PODFILE CHECKSUM: 1d9c523f079c34b50332e1ef07c5bd45063a51e5
