@@ -22,7 +22,7 @@ public struct ProfileModel: Decodable {
     
     func isAccessAllowed(for appType: AppType) throws {
         guard accesses.contains(where: { accessModel in
-            appType.avaialbleAccess.first { $0 == accessModel.type } != nil
+            appType.availableAccess.first { $0 == accessModel.type } != nil
         }) else {
             throw AppError.accessDisabled
         }

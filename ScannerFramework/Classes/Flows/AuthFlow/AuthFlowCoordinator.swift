@@ -20,7 +20,7 @@ public enum AppType {
     case goodsScanner
     case receiptScan
     
-    var avaialbleAccess: [AccessType] {
+    var availableAccess: [AccessType] {
         return self == .goodsScanner ? AccessType.goodsScannerAccessRequirements : AccessType.receiptScanAccessRequirements
     }
 }
