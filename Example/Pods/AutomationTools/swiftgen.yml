@@ -1,0 +1,27 @@
+xcassets:
+    inputs: ../../../ScannerFramework/Assets/Assets.xcassets
+    outputs:
+      - templateName: swift4
+        output: ../../../ScannerFramework/Classes/Resources/AssetsConstants.swift
+        params:
+          forceProvidesNamespaces: true
+
+strings:
+    inputs: ../../../ScannerFramework/Classes/Resources/Localizable.strings
+    outputs:
+      - templateName: structured-swift4
+        output: ../../../ScannerFramework/Classes/Resources/LocalizedStringConstants.swift
+
+ib:
+    inputs: ../../../ScannerFramework/Assets
+    outputs:
+      - templateName: scenes-swift4
+        output: ../../../ScannerFramework/Classes/Resources/StoryboardScenes.swift
+      - templateName: segues-swift4
+        output: ../../../ScannerFramework/Classes/Resources/StoryboardSegues.swift
+
+fonts:
+    inputs: ../../../ScannerFramework/Classes/Resources/Fonts
+    outputs:
+      templateName: swift4
+      output: ../../../ScannerFramework/Classes/Resources/FontsConstants.swift

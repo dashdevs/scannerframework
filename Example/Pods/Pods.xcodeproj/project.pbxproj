@@ -66,6 +66,11 @@
 		0D176222235E03DE0094A2C6 /* SF-Pro-Text-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8DD5AD06E8E7768E13EBC432FEC2856D /* SF-Pro-Text-Ultralight.otf */; };
 		0D176223235E03DE0094A2C6 /* SF-Pro-Text-UltralightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F338F264CC2516688D6B8083507E80E1 /* SF-Pro-Text-UltralightItalic.otf */; };
 		0D7ADE62235DF28200005CCA /* GetDocumentDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CC0CB6BBD6E52754E1CA7F8D8B55D /* GetDocumentDescriptor.swift */; };
+		0DBE41F4235EE7B500EB2C8B /* Auth.storyboard in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6227071321022106FFA9C13934305BC7 /* Auth.storyboard */; };
+		0DBE41F5235EE7B500EB2C8B /* PrepareDocument.storyboard in CopyFiles */ = {isa = PBXBuildFile; fileRef = 973A37DD133C0F4550E2091D3A6192A4 /* PrepareDocument.storyboard */; };
+		0DBE41F6235EE7B500EB2C8B /* LoaderView.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = FC61935FB97768FF4D674C5514336C19 /* LoaderView.xib */; };
+		0DBE41F7235EE7B500EB2C8B /* RefreshTableViewCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A2EC1CE4BEA04FC1ECAB6E7AE20ED68 /* RefreshTableViewCell.xib */; };
+		0DBE41F8235EE7C600EB2C8B /* ShowDocument.storyboard in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86BB637F61AF152B5903B4382C708D0C /* ShowDocument.storyboard */; };
 		0F946C23A376C46FDCDBF8DA0FDB920F /* LocalizedStringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CFD5D6BF1E0EAD3796B75C2AD290E2 /* LocalizedStringConstants.swift */; };
 		10AA858A3DCE69898FA0F5B43F0B4BB0 /* RefreshTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F3F866FB6B80D9ACEB3FAC7FA5588C /* RefreshTableViewCell.swift */; };
 		1144DEAD189AE572FB5EBC01B1DAC62F /* GetPartnersDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA83A48B5F5F5551B719855A219CF95 /* GetPartnersDescriptor.swift */; };
@@ -237,6 +242,23 @@
 			remoteInfo = ScannerFramework;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0DBE41F3235EE78F00EB2C8B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				0DBE41F8235EE7C600EB2C8B /* ShowDocument.storyboard in CopyFiles */,
+				0DBE41F4235EE7B500EB2C8B /* Auth.storyboard in CopyFiles */,
+				0DBE41F5235EE7B500EB2C8B /* PrepareDocument.storyboard in CopyFiles */,
+				0DBE41F6235EE7B500EB2C8B /* LoaderView.xib in CopyFiles */,
+				0DBE41F7235EE7B500EB2C8B /* RefreshTableViewCell.xib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		005B7D1547C4615AA69F0BDA0B8C7701 /* AuthConfirmDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthConfirmDescriptor.swift; sourceTree = "<group>"; };
@@ -1111,9 +1133,11 @@
 			buildConfigurationList = 9B84BB370244D302606D86CF5688352E /* Build configuration list for PBXNativeTarget "ScannerFramework" */;
 			buildPhases = (
 				9047C55F404E238BAB553740E8579F13 /* Headers */,
+				0DBE41F2235EE6D500EB2C8B /* SwiftGen */,
 				1A9950F926F765B0E5A5EC8666564D38 /* Sources */,
 				21072BF89E4E97A2446CF19FAC427F08 /* Frameworks */,
 				378D29D3C7CF2026484455D38DA435D0 /* Resources */,
+				0DBE41F3235EE78F00EB2C8B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1263,6 +1287,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0DBE41F2235EE6D500EB2C8B /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftGen/bin/swiftgen\" config run --config \"${PROJECT_DIR}/AutomationTools/swiftgen.yml\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		044A6C9E32F5D3578B75E1D2A00D76B2 /* Sources */ = {
