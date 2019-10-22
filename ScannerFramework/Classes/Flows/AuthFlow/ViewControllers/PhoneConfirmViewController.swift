@@ -35,6 +35,7 @@ class PhoneConfirmViewController: BaseAuthConfirmViewController {
             digitTextFields.forEach { $0.text = "0" }
             codeTextField.text = "0000"
             isLoginEnabled = true
+            loginInputState = .filled
         #endif
     }
 }

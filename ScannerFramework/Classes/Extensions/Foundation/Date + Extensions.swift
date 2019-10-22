@@ -18,6 +18,8 @@ extension Date {
     }
     
     public var endOfDay: Date {
-        return Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: self)!
+        var date = Calendar.current.date(byAdding: .day, value: 1, to: self)!
+        date = Calendar.current.startOfDay(for: date)
+        return Calendar.current.date(byAdding: .second, value: -1, to: date)!
     }
 }

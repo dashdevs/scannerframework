@@ -23,6 +23,9 @@ public enum AccessType: String, Codable {
     case importBranchesFromCsvAccess = "ImportBranchesFromCsvAccess"
     case importProductFromCsv = "ImportProductFromCsv"
     case importPartnersFromCsvAccess = "ImportPartnersFromCsvAccess"
+    
+    public static let receiptScanAccessRequirements: [AccessType] = [.inventory, .priceTags]
+    public static let goodsScannerAccessRequirements: [AccessType] = [.writeOff, .reception, .consumption]
 }
 
 struct AccessModel: Codable {

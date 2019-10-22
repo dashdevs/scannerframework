@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseAuthConfirmViewController: StateMachineViewController, KeyboardPlaceholderDelegate {
+class BaseAuthConfirmViewController: StateMachineViewController, KeyboardPlaceholderDelegate, PresentErrorProtocol {
     private struct Constants {
         static let defaultKeyboardPlaceholderHeight: CGFloat = 80.0
         static let animationDuration: TimeInterval = 0.2
@@ -32,6 +32,7 @@ class BaseAuthConfirmViewController: StateMachineViewController, KeyboardPlaceho
     var currentAuthKey: String!
     var onAuthorize: ((AccessToken) -> Void)?
     var onFinishAuth: ((ProfileModel) -> Void)?
+    var appType: AppType!
     
     private var timerBlockResend: Timer?
     private let repo = Repository()
@@ -48,7 +49,7 @@ class BaseAuthConfirmViewController: StateMachineViewController, KeyboardPlaceho
         }
     }
     
-    private var loginInputState: InputState = .empty
+    var loginInputState: InputState = .empty
     private var isLoginFilled: Bool {
         if case .filled = loginInputState {
             return true
@@ -179,7 +180,13 @@ class BaseAuthConfirmViewController: StateMachineViewController, KeyboardPlaceho
             DataRepository().appSettings = settings.settings
             repo.getUserProfile()
         case .profile(let profile):
-            onFinishAuth?(profile)
+            do {
+                try profile.isAccessAllowed(for: appType)
+                onFinishAuth?(profile)
+            } catch {
+                presentError(error)
+            }
+            isLoginEnabled = true
         default:
             break
         }

@@ -13,17 +13,28 @@ public protocol Coordinator {
 }
 
 extension NSNotification.Name {
-    static let logout = NSNotification.Name("logout")
+    static public let logout = NSNotification.Name("logout")
+}
+
+public enum AppType {
+    case goodsScanner
+    case receiptScan
+    
+    var availableAccess: [AccessType] {
+        return self == .goodsScanner ? AccessType.goodsScannerAccessRequirements : AccessType.receiptScanAccessRequirements
+    }
 }
 
 public final class AuthFlowCoordinator: Coordinator {
     public let router: UINavigationController
     private let onCompletion: (ProfileModel) -> Void
+    private let appType: AppType
     private var currentAuthKey: String?
     
-    public init(completion: @escaping (ProfileModel) -> Void) {
+    public init(appType: AppType, completion: @escaping (ProfileModel) -> Void) {
         FontFamily.registerAllCustomFonts()
         router = StoryboardScene.Auth.initialScene.instantiate()
+        self.appType = appType
         onCompletion = completion
     }
     
@@ -58,6 +69,7 @@ public final class AuthFlowCoordinator: Coordinator {
     
     private func showEmailConfirm() {
         let emailConfirmViewController = StoryboardScene.Auth.emailConfirm.instantiate()
+        emailConfirmViewController.appType = appType
         emailConfirmViewController.currentAuthKey = currentAuthKey
         emailConfirmViewController.onAuthorize = { [weak self] tokens in
             self?.onAuthorize(tokens: tokens)
@@ -71,6 +83,7 @@ public final class AuthFlowCoordinator: Coordinator {
     
     private func showPhoneConfirm() {
         let phoneConfirmViewController = StoryboardScene.Auth.phoneConfirm.instantiate()
+        phoneConfirmViewController.appType = appType
         phoneConfirmViewController.currentAuthKey = currentAuthKey
         phoneConfirmViewController.onAuthorize = { [weak self] tokens in
             self?.onAuthorize(tokens: tokens)

@@ -19,4 +19,12 @@ public struct ProfileModel: Decodable {
     let middleName: String?
     let role: String
     let accesses: [AccessModel]
+    
+    func isAccessAllowed(for appType: AppType) throws {
+        guard accesses.contains(where: { accessModel in
+            appType.availableAccess.first { $0 == accessModel.type } != nil
+        }) else {
+            throw AppError.accessDisabled
+        }
+    }
 }

@@ -11,12 +11,14 @@ import Foundation
 extension DateFormatter {
     public static var dottedYearMonthDayFormatter: DateFormatter = {
         let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
         formatter.dateFormat = "dd.MM.YYYY"
         return formatter
     }()
     
     public static var fullDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
         formatter.dateStyle = .long
         formatter.locale = Locale(identifier: "uk_UA")
         return formatter
