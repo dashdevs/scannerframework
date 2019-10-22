@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DE74213235EFF4700CCB588 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0DE74212235EFF4600CCB588 /* swiftgen.yml */; };
 		287951B188FB785EAAFB15D4 /* Pods_ScannerFramework_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285EDCC22885BCF267C5A432 /* Pods_ScannerFramework_Tests.framework */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0DE74212235EFF4600CCB588 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swiftgen.yml; sourceTree = "<group>"; };
 		285EDCC22885BCF267C5A432 /* Pods_ScannerFramework_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScannerFramework_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39547733B76BC67778FFC4FB /* Pods-ScannerFramework_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScannerFramework_Tests.debug.xcconfig"; path = "Target Support Files/Pods-ScannerFramework_Tests/Pods-ScannerFramework_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		3DD496270F5618502B62A289 /* Pods-ScannerFramework_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScannerFramework_Tests.release.xcconfig"; path = "Target Support Files/Pods-ScannerFramework_Tests/Pods-ScannerFramework_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -36,6 +38,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DE74211235EFF4600CCB588 /* AutomationTools */ = {
+			isa = PBXGroup;
+			children = (
+				0DE74212235EFF4600CCB588 /* swiftgen.yml */,
+			);
+			name = AutomationTools;
+			path = Pods/AutomationTools;
+			sourceTree = "<group>";
+		};
 		598CA307A750230230B28664 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -47,6 +58,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				0DE74211235EFF4600CCB588 /* AutomationTools */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
@@ -163,6 +175,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DE74213235EFF4700CCB588 /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
