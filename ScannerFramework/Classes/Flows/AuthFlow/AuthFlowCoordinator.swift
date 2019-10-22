@@ -17,16 +17,11 @@ extension NSNotification.Name {
 }
 
 public enum AppType {
-    private struct Constants {
-        static let receiptScanAccessRequirements = [AccessType.inventory, AccessType.priceTags]
-        static let goodsScannerAccessRequirements = [AccessType.writeOff, AccessType.reception, AccessType.consumption]
-    }
-    
     case goodsScanner
     case receiptScan
     
     var avaialbleAccess: [AccessType] {
-        return self == .goodsScanner ? Constants.goodsScannerAccessRequirements : Constants.receiptScanAccessRequirements
+        return self == .goodsScanner ? AccessType.goodsScannerAccessRequirements : AccessType.receiptScanAccessRequirements
     }
 }
 
