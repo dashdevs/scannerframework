@@ -21,7 +21,7 @@ ib:
         output: ../../../ScannerFramework/Classes/Resources/StoryboardSegues.swift
 
 fonts:
-    inputs: ../../../ScannerFramework/Classes/Resources/Fonts
+    inputs: ../../../ScannerFramework/Assets/Fonts
     outputs:
       templateName: swift4
       output: ../../../ScannerFramework/Classes/Resources/FontsConstants.swift
