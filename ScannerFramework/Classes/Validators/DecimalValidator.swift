@@ -24,7 +24,7 @@ public class DecimalValidator: RegexValidator {
         return .unknown
     }
     
-    convenience init(maxDecimalCount: Int?) {
+    public convenience init(maxDecimalCount: Int?) {
         self.init()
         guard let maxDecimalCount = maxDecimalCount else { return }
         _regex = "^[0-9]+([.,][0-9]{1,\(maxDecimalCount)})?$"
