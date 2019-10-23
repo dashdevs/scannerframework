@@ -73,6 +73,16 @@ internal enum L10n {
   internal static let getCodeTitle = L10n.tr("Localizable", "get_code_title")
   /// ПОЛУЧИТЬ КОД
   internal static let getLinkTitle = L10n.tr("Localizable", "get_link_title")
+  /// товары = %d
+  internal static func goodsAmount(_ p1: Int) -> String {
+    return L10n.tr("Localizable", "goods_amount", p1)
+  }
+  /// Подтвердите все позиции (%@) в заявке прежде чем формировать Акт
+  internal static func goodsNotAcceptedDescription(_ p1: String) -> String {
+    return L10n.tr("Localizable", "goods_not_accepted_description", p1)
+  }
+  /// Товары не подтверждены!
+  internal static let goodsNotAcceptedTitle = L10n.tr("Localizable", "goods_not_accepted_title")
   /// ТОВАРЫ
   internal static let goodsTitle = L10n.tr("Localizable", "goods_title")
   /// НЕ ОБРАБОТАННЫЕ
@@ -153,6 +163,10 @@ internal enum L10n {
   internal static let successActMessage = L10n.tr("Localizable", "success_act_message")
   /// Акт сформирован
   internal static let successActTitle = L10n.tr("Localizable", "success_act_title")
+  /// тара = %d
+  internal static func tareAmount(_ p1: Int) -> String {
+    return L10n.tr("Localizable", "tare_amount", p1)
+  }
   /// Вы можете отправить код еще раз через %@
   internal static func timerCodeMessage(_ p1: String) -> String {
     return L10n.tr("Localizable", "timer_code_message", p1)

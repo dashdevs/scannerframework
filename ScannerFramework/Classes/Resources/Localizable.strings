@@ -102,3 +102,8 @@
 "one_uk_female" = "одна ";
 "two_uk_male" = "два ";
 "two_uk_female" = "дві ";
+
+"goods_not_accepted_title" = "Товары не подтверждены!";
+"goods_not_accepted_description" = "Подтвердите все позиции (%@) в заявке прежде чем формировать Акт";
+"goods_amount" = "товары = %d";
+"tare_amount" = "тара = %d";
