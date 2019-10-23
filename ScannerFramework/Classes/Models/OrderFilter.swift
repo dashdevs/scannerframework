@@ -54,7 +54,7 @@ public class SelectableOrderFilter {
 public class OrderFilter: SelectableOrderFilter {
     private let type: OrderType
     public var state: OrderState
-    var search: String?
+    public var search: String?
     
     public init(type: OrderType = .inventory, state: OrderState = .notCompleted) {
         self.type = type
