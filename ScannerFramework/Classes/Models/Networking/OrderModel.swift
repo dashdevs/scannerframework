@@ -13,6 +13,71 @@ public enum OrderType: String, Decodable {
     case consumption = "Consumption"
     case writeOff = "WriteOff"
     case inventory = "Inventory"
+    
+    public var screenTitle: String {
+        switch self {
+        case .reception:
+            return L10n.incomeScreenTitle
+        case .consumption:
+            return L10n.consumptionScreenTitle
+        case .writeOff:
+            return L10n.writeoffScreenTitle
+        case .inventory:
+            return ""
+        }
+    }
+    
+    public var searchPlaceholder: String {
+        switch self {
+        case .reception:
+            return L10n.incomeSearchPlaceholder
+        case .consumption:
+            return L10n.consumptionSearchPlaceholder
+        case .writeOff:
+            return L10n.writeoffSearchPlaceholder
+        case .inventory:
+            return ""
+        }
+    }
+    
+    public var orderTitle: String {
+        switch self {
+        case .reception:
+            return L10n.incomeOrderTitle
+        case .consumption:
+            return L10n.consumptionOrderTitle
+        case .writeOff:
+            return L10n.writeoffOrderTitle
+        case .inventory:
+            return ""
+        }
+    }
+    
+    public var newOrderTitle: String {
+        switch self {
+        case .reception:
+            return L10n.newIncomeTitle
+        case .consumption:
+            return L10n.newConsumptionTitle
+        case .writeOff:
+            return L10n.newWriteoffTitle
+        case .inventory:
+            return ""
+        }
+    }
+    
+    public var actTitle: String {
+        switch self {
+        case .reception:
+            return L10n.actReceptionTitle
+        case .consumption:
+            return L10n.actConsumptionTitle
+        case .writeOff:
+            return L10n.actWriteoffTitle
+        case .inventory:
+            return ""
+        }
+    }
 }
 
 public enum OrderState: String {
