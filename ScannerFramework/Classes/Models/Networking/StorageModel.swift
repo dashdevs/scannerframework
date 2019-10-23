@@ -9,7 +9,7 @@
 import Foundation
 
 public struct StorageModel: Codable {
-    let id: ModelID
+    public let id: ModelID
     public let name: String
 }
 
