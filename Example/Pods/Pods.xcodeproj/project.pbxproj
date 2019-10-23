@@ -31,6 +31,8 @@
 		071004EC83208487DCACFD6AE1DCE3FC /* CreateOrderProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EB2948A3027D1A11BC3D394B2774E3 /* CreateOrderProductModel.swift */; };
 		0847B381D4E24A26A28CC8B0A8FC59E1 /* IndexPath + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473396E1627B0111767A95F39E3C51D3 /* IndexPath + Extensions.swift */; };
 		0B379DA12B3C4A1876B63E5841855BC8 /* SF-Pro-Text-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 87D595667980BB1B9C6A24BEBE757E7C /* SF-Pro-Text-Thin.otf */; };
+		0D1160822360A1B6003988B9 /* UserOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1160812360A1B6003988B9 /* UserOrderModel.swift */; };
+		0D1160842360A205003988B9 /* UserRoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1160832360A205003988B9 /* UserRoleModel.swift */; };
 		0D83C9172360331D0063C127 /* BranchStoragesDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83C9162360331D0063C127 /* BranchStoragesDescriptor.swift */; };
 		0DE74216235EFFC300CCB588 /* Auth.storyboard in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE9CF4180C8A67693AF647B987F38377 /* Auth.storyboard */; };
 		0DE74217235EFFC300CCB588 /* LoaderView.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49BEFED0A176FA3621032B962E5A3073 /* LoaderView.xib */; };
@@ -352,6 +354,8 @@
 		0BB2FC7C566FA74367D3D18518E4939D /* AuthByPhoneDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthByPhoneDescriptor.swift; sourceTree = "<group>"; };
 		0C7BC573C64BDC250AA53DD950CE2126 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = DashdevsNetworking/Classes/Response.swift; sourceTree = "<group>"; };
 		0C98FD751AB6CC0265CEEC6DACCC8A2A /* ResourceBundle-ScannerFramework-ScannerFramework-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-ScannerFramework-ScannerFramework-Info.plist"; sourceTree = "<group>"; };
+		0D1160812360A1B6003988B9 /* UserOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOrderModel.swift; sourceTree = "<group>"; };
+		0D1160832360A205003988B9 /* UserRoleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleModel.swift; sourceTree = "<group>"; };
 		0D83C9162360331D0063C127 /* BranchStoragesDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchStoragesDescriptor.swift; sourceTree = "<group>"; };
 		0FD6F1ABFAF889CC1E5FB05480B8E022 /* StateMachineTableViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StateMachineTableViewController.swift; sourceTree = "<group>"; };
 		111754E092A4AA63723F3C792E63A2A7 /* StorageModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StorageModel.swift; sourceTree = "<group>"; };
@@ -1073,6 +1077,8 @@
 				111754E092A4AA63723F3C792E63A2A7 /* StorageModel.swift */,
 				A3195E60C759E092DCC4D131BD0797C5 /* UpdateOrderModel.swift */,
 				63AAD58642C4FC811266AEF5EF1BD456 /* UploadDocumentModel.swift */,
+				0D1160812360A1B6003988B9 /* UserOrderModel.swift */,
+				0D1160832360A205003988B9 /* UserRoleModel.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1455,6 +1461,7 @@
 				B4AD697485736F404733E2D381A71EC1 /* Data + Extensions.swift in Sources */,
 				AB928FFB1FD4C28B06566DCBD2FAD113 /* DataRepository.swift in Sources */,
 				BF2F891B4CCF46DA59BAEC9804139AB2 /* Date + Extensions.swift in Sources */,
+				0D1160842360A205003988B9 /* UserRoleModel.swift in Sources */,
 				4766BDD2FFECA8223FA912E94B7290DB /* DateFormatter + Extensions.swift in Sources */,
 				799B40C48E7E45E2F4A38E88EC342C4F /* DecimalValidator.swift in Sources */,
 				46AF86EB888E93229F45F96171BDFDFB /* DefaultErrorHandler.swift in Sources */,
@@ -1503,6 +1510,7 @@
 				E623327C977D647C12921563C2A81684 /* Repository.swift in Sources */,
 				E743B026E60BBFD96F71541AE53CDE23 /* RequiredNonEmptyValidator.swift in Sources */,
 				28CAD5FFC00EF831978B85764CBD351B /* ResendCodeDescriptor.swift in Sources */,
+				0D1160822360A1B6003988B9 /* UserOrderModel.swift in Sources */,
 				EBCD08AF70B72F19CE164712EAA0F11F /* ScannerFramework-dummy.m in Sources */,
 				BFC65A66B61BA9CB610C310E2703E48E /* SettingsDescriptor.swift in Sources */,
 				23D515DE9442B5532D6F34FE0A773D66 /* SettingsModel.swift in Sources */,

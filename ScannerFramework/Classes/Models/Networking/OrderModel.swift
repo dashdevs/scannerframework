@@ -96,11 +96,11 @@ public struct OrderModel: Decodable {
     public let partnerForConsumption: PartnerModel?
     public let partnerForReception: PartnerModel?
     public let processingDate: Date?
-    public let userWhoProcessedName: String?
     public let type: OrderType
     public let hasDocument: Bool
     public let total: NSDecimalNumber
     public let isFormed: Bool
+    public let userWhoProcessedName: UserOrderModel?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -129,7 +129,7 @@ public struct OrderModel: Decodable {
         partnerForConsumption = try? container.decode(PartnerModel.self, forKey: .partnerForConsumption)
         partnerForReception = try? container.decode(PartnerModel.self, forKey: .partnerForReception)
         processingDate = try? container.decode(Date.self, forKey: .processingDate)
-        userWhoProcessedName = try? container.decode(String.self, forKey: .userWhoProcessedName)
+        userWhoProcessedName = try? container.decode(UserOrderModel.self, forKey: .userWhoProcessedName)
         type = try container.decode(OrderType.self, forKey: .type)
         hasDocument = try container.decode(Bool.self, forKey: .hasDocument)
         total = NSDecimalNumber(value: totalDouble)
