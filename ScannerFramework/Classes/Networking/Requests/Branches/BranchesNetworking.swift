@@ -14,6 +14,7 @@ protocol BranchesNetworking {
     @discardableResult func createOrder(branchId: ModelID, orderType: OrderType, date: Date) -> URLSessionTask
     @discardableResult func getBranchOrders(for branchID: ModelID, filters: OrderFilter, offset: Int) -> URLSessionTask
     @discardableResult func getBranchPartners(for branchID: ModelID, filter: String, offset: Int) -> URLSessionTask
+    @discardableResult func getBranchStorages(for branchID: Int64) -> URLSessionTask
 }
 
 extension DataRepository: BranchesNetworking {
@@ -85,6 +86,22 @@ extension DataRepository: BranchesNetworking {
                                             switch response {
                                             case let .success(response):
                                                 self?.handler?.state = .success(.partners(response))
+                                            case let .failure(error):
+                                                self?.handler?.state = .failure(error)
+                                            }
+        })
+        return urlSessionTask
+    }
+    
+    @discardableResult func getBranchStorages(for branchID: Int64) -> URLSessionTask {
+        let endpointDescriptor = BranchStoragesDescriptor(branchID: branchID)
+        handler?.state = .loading
+        let urlSessionTask = loader.load(endpointDescriptor,
+                                         handler: { [weak self] (response, _) in
+                                            switch response {
+                                            case let .success(response):
+                                                self?.cachedBranchStorages = response
+                                                self?.handler?.state = .success(.storages(response))
                                             case let .failure(error):
                                                 self?.handler?.state = .failure(error)
                                             }

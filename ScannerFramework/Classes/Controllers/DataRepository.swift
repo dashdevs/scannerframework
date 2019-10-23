@@ -14,6 +14,7 @@ public class DataRepository: BaseRepository {
         static let currentUserFirstName = "currentUserFirstName"
         static let currentUserLastName = "currentUserLastName"
         static let currentUserMiddleName = "currentUserMiddleName"
+        static let branchStoragesKey = "cachedBranchStorages"
         static let appSettingsKey = "AppSettings"
         static let currentUserAccesses = "currentUserAccesses"
     }
@@ -67,10 +68,23 @@ public class DataRepository: BaseRepository {
         }
         
         set {
+            clearCache()
             guard let branchModel = newValue,
                 let key = currentUserKey,
                 let data = try? JSONEncoder().encode(branchModel) else { return }
             UserDefaults.standard.set(data, forKey: key)
+        }
+    }
+    
+    public var cachedBranchStorages: StoragesModel? {
+        get {
+            guard let data = UserDefaults.standard.value(forKey: Constants.branchStoragesKey) as? Data else { return nil }
+            let storagesModel = try? JSONDecoder().decode(StoragesModel.self, from: data)
+            return storagesModel
+        }
+        set {
+            let data = try? JSONEncoder().encode(newValue)
+            UserDefaults.standard.set(data, forKey: Constants.branchStoragesKey)
         }
     }
     
@@ -99,6 +113,7 @@ public class DataRepository: BaseRepository {
         UserDefaults.standard.set(userProfile.lastName, forKey: Constants.currentUserLastName)
         UserDefaults.standard.set(userProfile.middleName, forKey: Constants.currentUserMiddleName)
         currentUserAccesses = userProfile.accesses.map { $0.type }
+        clearCache()
     }
     
     public func isAppSettingsEnabled(_ setting: SettingType) -> Bool {
@@ -109,5 +124,19 @@ public class DataRepository: BaseRepository {
     public func isUserAccessAllowed(_ access: AccessType) -> Bool {
         guard let accesses = currentUserAccesses else { return true }
         return accesses.first { $0 == access } != nil
+    }
+    
+    public func getBranchStorages(for branchID: Int64, prefereCached: Bool) {
+        guard !prefereCached, let storages = cachedBranchStorages else {
+            getBranchStorages(for: branchID)
+            return
+        }
+        handler?.state = .success(Container.storages(storages))
+    }
+    
+    // MARK: - Private
+    
+    private func clearCache() {
+        cachedBranchStorages = nil
     }
 }

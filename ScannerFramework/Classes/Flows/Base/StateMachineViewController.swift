@@ -29,6 +29,7 @@ public enum Container {
     case order(OrderModel)
     case settings(SettingsModel)
     case document(GetDocumentModel)
+    case storages(StoragesModel)
 }
 
 public protocol StateMachine: AnyObject {

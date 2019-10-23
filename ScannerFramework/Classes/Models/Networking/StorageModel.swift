@@ -8,7 +8,11 @@
 
 import Foundation
 
-public struct StorageModel: Decodable {
+public struct StorageModel: Codable {
     let id: ModelID
     public let name: String
+}
+
+public struct StoragesModel: Codable {
+    let storages: [StorageModel]
 }
