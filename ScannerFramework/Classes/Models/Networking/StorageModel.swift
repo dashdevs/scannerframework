@@ -11,8 +11,13 @@ import Foundation
 public struct StorageModel: Codable {
     public let id: ModelID
     public let name: String
+    
+    public init(id: ModelID, name: String) {
+        self.id = id
+        self.name = name
+    }
 }
 
 public struct StoragesModel: Codable {
-    let storages: [StorageModel]
+    public let storages: [StorageModel]
 }
