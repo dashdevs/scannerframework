@@ -83,6 +83,10 @@ public enum OrderType: String, Decodable {
 public enum OrderState: String {
     case completed = "Completed"
     case notCompleted = "NotCompleted"
+    
+    public var queryItem: URLQueryItem {
+        return URLQueryItem(name: "State", value: self.rawValue)
+    }
 }
 
 public struct OrderModel: Decodable {

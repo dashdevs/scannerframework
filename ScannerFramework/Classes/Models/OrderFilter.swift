@@ -58,10 +58,10 @@ public class SelectableOrderFilter {
 
 public class OrderFilter: SelectableOrderFilter {
     private let type: OrderType
-    public var state: OrderState
+    public var state: OrderState?
     public var search: String?
     
-    public init(type: OrderType = .inventory, state: OrderState = .notCompleted) {
+    public init(type: OrderType = .inventory, state: OrderState? = nil) {
         self.type = type
         self.state = state
         super.init()
@@ -69,12 +69,12 @@ public class OrderFilter: SelectableOrderFilter {
     
     var queryItems: [URLQueryItem] {
         var queryItems = dateRange.queryItems
-        
-        queryItems.append(contentsOf: [URLQueryItem(name: "Types", value: type.rawValue),
-                                       URLQueryItem(name: "State", value: state.rawValue)])
+        queryItems.append(URLQueryItem(name: "Types", value: type.rawValue))
+        if let stateQueryItem = state?.queryItem {
+            queryItems.append(stateQueryItem)
+        }
         storages?.forEach { queryItems.append(URLQueryItem(name: "Storages", value: String($0.id))) }
-        search.flatMap { queryItems.append(URLQueryItem(name: "Search", value: $0)) }
-        
+        search.flatMap { queryItems.append(URLQueryItem(name: "Search", value: $0)) }        
         return queryItems
     }
     
