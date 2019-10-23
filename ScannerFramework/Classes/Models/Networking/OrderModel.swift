@@ -96,11 +96,11 @@ public struct OrderModel: Decodable {
     public let partnerForConsumption: PartnerModel?
     public let partnerForReception: PartnerModel?
     public let processingDate: Date?
-    let userWhoProcessedName: String?
+    public let userWhoProcessedName: String?
     public let type: OrderType
     public let hasDocument: Bool
     public let total: NSDecimalNumber
-    let isFormed: Bool
+    public let isFormed: Bool
     
     enum CodingKeys: String, CodingKey {
         case id
