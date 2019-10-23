@@ -29,6 +29,8 @@ internal enum L10n {
   internal static let addGoodsTitle = L10n.tr("Localizable", "add_goods_title")
   /// Добавить в акт
   internal static let addToActTitle = L10n.tr("Localizable", "add_to_act_title")
+  /// Все
+  internal static let allTitle = L10n.tr("Localizable", "all_title")
   /// Авторизация
   internal static let authTitle = L10n.tr("Localizable", "auth_title")
   /// Назад

@@ -30,7 +30,6 @@ public enum Container {
     case settings(SettingsModel)
     case document(GetDocumentModel)
     case storages(StoragesModel)
-    case product(SimpleProductModel)
 }
 
 public protocol StateMachine: AnyObject {

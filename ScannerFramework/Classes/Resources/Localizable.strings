@@ -127,3 +127,5 @@
 "act_reception_title" = "Прибуткова накладна";
 "act_consumption_title" = "Видаткова накладна";
 "act_writeoff_title" = "Акт списання";
+
+"all_title" = "Все";

@@ -42,10 +42,10 @@ public class DateRangeFilter {
 }
 
 public class SelectableOrderFilter {
-    public var storages: [ModelID]
+    public var storages: [StorageModel]
     public var dateRange: DateRangeFilter
     
-    init(fromRange: DateRangeFilter = DateRangeFilter(), storages: [ModelID] = [ModelID]()) {
+    init(fromRange: DateRangeFilter = DateRangeFilter(), storages: [StorageModel] = [StorageModel]()) {
         self.storages = storages
         dateRange = fromRange
     }
@@ -67,7 +67,7 @@ public class OrderFilter: SelectableOrderFilter {
         
         queryItems.append(contentsOf: [URLQueryItem(name: "Types", value: type.rawValue),
                                        URLQueryItem(name: "State", value: state.rawValue)])
-        storages.forEach { queryItems.append(URLQueryItem(name: "Storages", value: String($0))) }
+        storages.forEach { queryItems.append(URLQueryItem(name: "Storages", value: String($0.id))) }
         search.flatMap { queryItems.append(URLQueryItem(name: "Search", value: $0)) }
         
         return queryItems
@@ -82,5 +82,10 @@ public class OrderFilter: SelectableOrderFilter {
             dateRange = newValue.dateRange
             storages = newValue.storages
         }
+    }
+    
+    public var storageNames: String {
+        guard storages.isEmpty else { return L10n.allTitle }
+        return storages.map { $0.name }.joined(separator: ", ")
     }
 }
