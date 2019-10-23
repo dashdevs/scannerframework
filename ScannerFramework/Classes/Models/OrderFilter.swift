@@ -42,9 +42,11 @@ public class DateRangeFilter {
 }
 
 public class SelectableOrderFilter {
+    public var storages: [ModelID]
     public var dateRange: DateRangeFilter
     
-    init(fromRange: DateRangeFilter = DateRangeFilter()) {
+    init(fromRange: DateRangeFilter = DateRangeFilter(), storages: [ModelID] = [ModelID]()) {
+        self.storages = storages
         dateRange = fromRange
     }
 }
@@ -52,6 +54,7 @@ public class SelectableOrderFilter {
 public class OrderFilter: SelectableOrderFilter {
     private let type: OrderType
     public var state: OrderState
+    var search: String?
     
     public init(type: OrderType = .inventory, state: OrderState = .notCompleted) {
         self.type = type
@@ -64,17 +67,20 @@ public class OrderFilter: SelectableOrderFilter {
         
         queryItems.append(contentsOf: [URLQueryItem(name: "Types", value: type.rawValue),
                                        URLQueryItem(name: "State", value: state.rawValue)])
+        storages.forEach { queryItems.append(URLQueryItem(name: "Storages", value: String($0))) }
+        search.flatMap { queryItems.append(URLQueryItem(name: "Search", value: $0)) }
         
         return queryItems
     }
     
     public var selectableFilters: SelectableOrderFilter {
         get {
-            return SelectableOrderFilter(fromRange: dateRange)
+            return SelectableOrderFilter(fromRange: dateRange, storages: storages)
         }
         
         set {
             dateRange = newValue.dateRange
+            storages = newValue.storages
         }
     }
 }
