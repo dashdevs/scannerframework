@@ -42,12 +42,12 @@ extension RequestVideoPermission where Self: UIViewController {
 }
 
 public protocol PresentErrorProtocol {
-    func presentError(_ error: Error, title: String?)
+    func presentError(_ error: Error, title: String?, handler: ((UIAlertAction) ->Void)?)
 }
 
 extension PresentErrorProtocol where Self: UIViewController {
-    public func presentError(_ error: Error, title: String? = nil) {
-        let errorAlert = UIAlertController.alert(with: error, title: title)
+    public func presentError(_ error: Error, title: String? = nil, handler: ((UIAlertAction) ->Void)? = nil) {
+        let errorAlert = UIAlertController.alert(with: error, title: title, handler: handler)
         present(errorAlert, animated: true)
     }
 }

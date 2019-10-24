@@ -8,10 +8,10 @@
 
 import DashdevsNetworking
 
-struct DetailedNetworkError: Decodable, LocalizedError {
+public struct DetailedNetworkError: Decodable, LocalizedError {
     let errorCode: Int
     let message: String
-    var errorDescription: String? {
+    public var errorDescription: String? {
         return message
     }
     
@@ -20,13 +20,13 @@ struct DetailedNetworkError: Decodable, LocalizedError {
         case Message
     }
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         errorCode = try container.decode(Int.self, forKey: .ErrorCode)
         message = try container.decode(String.self, forKey: .Message)
     }
     
-    init(httpError: DashdevsNetworking.NetworkError.HTTPError) {
+    public init(httpError: DashdevsNetworking.NetworkError.HTTPError) {
         errorCode = 0
         switch httpError {
         case .client:

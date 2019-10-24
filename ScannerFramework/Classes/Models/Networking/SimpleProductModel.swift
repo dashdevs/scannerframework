@@ -15,6 +15,7 @@ public struct SimpleProductModel: Decodable {
     public let price: NSDecimalNumber
     public let place: String?
     public let count: NSDecimalNumber
+    public let articleNo: String?
     public let storage: StorageModel
     let barCodes: [String]?
     let tare: Bool
@@ -28,6 +29,7 @@ public struct SimpleProductModel: Decodable {
         case price
         case place
         case count
+        case articleNo
         case storage
         case barCodes
         case tare
@@ -53,6 +55,7 @@ public struct SimpleProductModel: Decodable {
         price = NSDecimalNumber(value: priceDouble)
         place = try? container.decode(String.self, forKey: .place)
         count = NSDecimalNumber(value: countDouble)
+        articleNo = try? container.decode(String.self, forKey: .articleNo)
         storage = try container.decode(StorageModel.self, forKey: .storage)
         barCodes = try? container.decode([String].self, forKey: .barCodes)
         tare = try container.decode(Bool.self, forKey: .tare)

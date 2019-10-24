@@ -34,6 +34,11 @@ open class StateMachineTableViewController: UITableViewController, StateMachine 
         }
     }
     
+    override open func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        isLoaderViewHidden = true
+    }
+    
     public var state: State = .initial {
         willSet(newValue) {
             update(newState: newValue)
