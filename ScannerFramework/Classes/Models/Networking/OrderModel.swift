@@ -13,11 +13,80 @@ public enum OrderType: String, Decodable {
     case consumption = "Consumption"
     case writeOff = "WriteOff"
     case inventory = "Inventory"
+    
+    public var screenTitle: String {
+        switch self {
+        case .reception:
+            return L10n.incomeScreenTitle
+        case .consumption:
+            return L10n.consumptionScreenTitle
+        case .writeOff:
+            return L10n.writeoffScreenTitle
+        case .inventory:
+            return ""
+        }
+    }
+    
+    public var searchPlaceholder: String {
+        switch self {
+        case .reception:
+            return L10n.incomeSearchPlaceholder
+        case .consumption:
+            return L10n.consumptionSearchPlaceholder
+        case .writeOff:
+            return L10n.writeoffSearchPlaceholder
+        case .inventory:
+            return ""
+        }
+    }
+    
+    public var orderTitle: String {
+        switch self {
+        case .reception:
+            return L10n.incomeOrderTitle
+        case .consumption:
+            return L10n.consumptionOrderTitle
+        case .writeOff:
+            return L10n.writeoffOrderTitle
+        case .inventory:
+            return ""
+        }
+    }
+    
+    public var newOrderTitle: String {
+        switch self {
+        case .reception:
+            return L10n.newIncomeTitle
+        case .consumption:
+            return L10n.newConsumptionTitle
+        case .writeOff:
+            return L10n.newWriteoffTitle
+        case .inventory:
+            return ""
+        }
+    }
+    
+    public var actTitle: String {
+        switch self {
+        case .reception:
+            return L10n.actReceptionTitle
+        case .consumption:
+            return L10n.actConsumptionTitle
+        case .writeOff:
+            return L10n.actWriteoffTitle
+        case .inventory:
+            return ""
+        }
+    }
 }
 
 public enum OrderState: String {
     case completed = "Completed"
     case notCompleted = "NotCompleted"
+    
+    public var queryItem: URLQueryItem {
+        return URLQueryItem(name: "State", value: self.rawValue)
+    }
 }
 
 public struct OrderModel: Decodable {
@@ -27,11 +96,11 @@ public struct OrderModel: Decodable {
     public let partnerForConsumption: PartnerModel?
     public let partnerForReception: PartnerModel?
     public let processingDate: Date?
-    let userWhoProcessedName: String?
     public let type: OrderType
     public let hasDocument: Bool
     public let total: NSDecimalNumber
-    let isFormed: Bool
+    public let isFormed: Bool
+    public let userWhoProcessedName: UserOrderModel?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -60,7 +129,7 @@ public struct OrderModel: Decodable {
         partnerForConsumption = try? container.decode(PartnerModel.self, forKey: .partnerForConsumption)
         partnerForReception = try? container.decode(PartnerModel.self, forKey: .partnerForReception)
         processingDate = try? container.decode(Date.self, forKey: .processingDate)
-        userWhoProcessedName = try? container.decode(String.self, forKey: .userWhoProcessedName)
+        userWhoProcessedName = try? container.decode(UserOrderModel.self, forKey: .userWhoProcessedName)
         type = try container.decode(OrderType.self, forKey: .type)
         hasDocument = try container.decode(Bool.self, forKey: .hasDocument)
         total = NSDecimalNumber(value: totalDouble)

@@ -11,18 +11,26 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
+  /// Видаткова накладна
+  internal static let actConsumptionTitle = L10n.tr("Localizable", "act_consumption_title")
   /// Не могу создать акт!
   internal static let actError = L10n.tr("Localizable", "act_error")
+  /// Прибуткова накладна
+  internal static let actReceptionTitle = L10n.tr("Localizable", "act_reception_title")
   /// Сохранить
   internal static let actSaveButtonTitle = L10n.tr("Localizable", "act_save_button_title")
   /// Акт
   internal static let actTitle = L10n.tr("Localizable", "act_title")
+  /// Акт списання
+  internal static let actWriteoffTitle = L10n.tr("Localizable", "act_writeoff_title")
   /// Здесь будут показаны все товары, которые вы добавите в заявку
   internal static let addGoodsHint = L10n.tr("Localizable", "add_goods_hint")
   /// Добавить товары
   internal static let addGoodsTitle = L10n.tr("Localizable", "add_goods_title")
   /// Добавить в акт
   internal static let addToActTitle = L10n.tr("Localizable", "add_to_act_title")
+  /// Все
+  internal static let allTitle = L10n.tr("Localizable", "all_title")
   /// Авторизация
   internal static let authTitle = L10n.tr("Localizable", "auth_title")
   /// Назад
@@ -39,6 +47,12 @@ internal enum L10n {
   internal static let completedTitle = L10n.tr("Localizable", "completed_title")
   /// Подвтердить
   internal static let confirmTitle = L10n.tr("Localizable", "confirm_title")
+  /// Заявка на расход 
+  internal static let consumptionOrderTitle = L10n.tr("Localizable", "consumption_order_title")
+  /// Заявки на расход
+  internal static let consumptionScreenTitle = L10n.tr("Localizable", "consumption_screen_title")
+  /// Номер
+  internal static let consumptionSearchPlaceholder = L10n.tr("Localizable", "consumption_search_placeholder")
   /// Вы уверены, что хотите удалить товар из списка инвентаризации?
   internal static let deleteAlertDescription = L10n.tr("Localizable", "delete_alert_description")
   /// Удаление товара
@@ -73,8 +87,24 @@ internal enum L10n {
   internal static let getCodeTitle = L10n.tr("Localizable", "get_code_title")
   /// ПОЛУЧИТЬ КОД
   internal static let getLinkTitle = L10n.tr("Localizable", "get_link_title")
+  /// товары = %d
+  internal static func goodsAmount(_ p1: Int) -> String {
+    return L10n.tr("Localizable", "goods_amount", p1)
+  }
+  /// Подтвердите все позиции (%@) в заявке прежде чем формировать Акт
+  internal static func goodsNotAcceptedDescription(_ p1: String) -> String {
+    return L10n.tr("Localizable", "goods_not_accepted_description", p1)
+  }
+  /// Товары не подтверждены!
+  internal static let goodsNotAcceptedTitle = L10n.tr("Localizable", "goods_not_accepted_title")
   /// ТОВАРЫ
   internal static let goodsTitle = L10n.tr("Localizable", "goods_title")
+  /// Заявка на приход 
+  internal static let incomeOrderTitle = L10n.tr("Localizable", "income_order_title")
+  /// Заявки на приход
+  internal static let incomeScreenTitle = L10n.tr("Localizable", "income_screen_title")
+  /// Номер или получатель
+  internal static let incomeSearchPlaceholder = L10n.tr("Localizable", "income_search_placeholder")
   /// НЕ ОБРАБОТАННЫЕ
   internal static let incompleteTitle = L10n.tr("Localizable", "incomplete_title")
   /// ИНВ
@@ -99,6 +129,12 @@ internal enum L10n {
   internal static let manualCodeTitle = L10n.tr("Localizable", "manual_code_title")
   /// минут
   internal static let minutesTitle = L10n.tr("Localizable", "minutes_title")
+  /// Новый расход
+  internal static let newConsumptionTitle = L10n.tr("Localizable", "new_consumption_title")
+  /// Новый приход
+  internal static let newIncomeTitle = L10n.tr("Localizable", "new_income_title")
+  /// Новое списание
+  internal static let newWriteoffTitle = L10n.tr("Localizable", "new_writeoff_title")
   /// Не получили код?
   internal static let notReceiveCodeTitle = L10n.tr("Localizable", "not_receive_code_title")
   /// Ок
@@ -153,6 +189,10 @@ internal enum L10n {
   internal static let successActMessage = L10n.tr("Localizable", "success_act_message")
   /// Акт сформирован
   internal static let successActTitle = L10n.tr("Localizable", "success_act_title")
+  /// тара = %d
+  internal static func tareAmount(_ p1: Int) -> String {
+    return L10n.tr("Localizable", "tare_amount", p1)
+  }
   /// Вы можете отправить код еще раз через %@
   internal static func timerCodeMessage(_ p1: String) -> String {
     return L10n.tr("Localizable", "timer_code_message", p1)
@@ -165,6 +205,12 @@ internal enum L10n {
   internal static let twoUkFemale = L10n.tr("Localizable", "two_uk_female")
   /// два 
   internal static let twoUkMale = L10n.tr("Localizable", "two_uk_male")
+  /// Заявка на списание 
+  internal static let writeoffOrderTitle = L10n.tr("Localizable", "writeoff_order_title")
+  /// Заявки на списание
+  internal static let writeoffScreenTitle = L10n.tr("Localizable", "writeoff_screen_title")
+  /// Получатель
+  internal static let writeoffSearchPlaceholder = L10n.tr("Localizable", "writeoff_search_placeholder")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

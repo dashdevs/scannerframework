@@ -79,7 +79,7 @@ public class SpellCurrencyFormatter: NumberFormatter {
 }
 
 extension NumberFormatter {
-    static var uahCurrencySymbol: String = "грн"
+    static public var uahCurrencySymbol: String = "грн"
     
     public static var uahDecimalFormatter: NumberFormatter = {
         let formatter = NumberFormatter()

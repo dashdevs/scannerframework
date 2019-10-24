@@ -18,7 +18,7 @@ class DocumentViewerViewController: UIViewController, PresentErrorProtocol {
     @IBOutlet private weak var cameraButton: UIBarButtonItem!
     
     private lazy var loaderView = LoaderView()
-    private var webView: UIView?
+    private var webView: WKWebView?
     
     private var isDocumentLoading = false {
         didSet {
@@ -44,33 +44,20 @@ class DocumentViewerViewController: UIViewController, PresentErrorProtocol {
     
     private func setup() {
         guard let urlRequest = showDocumentInfo.documentUrlRequest else { return }
-        var webView: UIView
-        if #available(iOS 11.0, *) {
-            let wkWebView = WKWebView(frame: view.frame)
-            wkWebView.backgroundColor = .gray
-            wkWebView.navigationDelegate = self
-            wkWebView.isUserInteractionEnabled = false
-            wkWebView.load(urlRequest)
-            
-            webView = wkWebView
-        } else {
-            let uiWebView = UIWebView(frame: view.frame)
-            uiWebView.backgroundColor = .darkGray
-            uiWebView.delegate = self
-            uiWebView.isUserInteractionEnabled = false
-            uiWebView.loadRequest(urlRequest)
-            
-            webView = uiWebView
-        }
-        view.backgroundColor = webView.backgroundColor
-        webView.isOpaque = false
-        webView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(webView)
-        NSLayoutConstraint.activate([webView.topAnchor.constraint(equalTo: view.topAnchor),
-                                     webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-                                     webView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Constants.contentMargin),
-                                     webView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -Constants.contentMargin)])
-        self.webView = webView
+        let wkWebView = WKWebView(frame: view.frame)
+        wkWebView.backgroundColor = .gray
+        wkWebView.navigationDelegate = self
+        wkWebView.isUserInteractionEnabled = false
+        wkWebView.load(urlRequest)
+        view.backgroundColor = wkWebView.backgroundColor
+        wkWebView.isOpaque = false
+        wkWebView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(wkWebView)
+        NSLayoutConstraint.activate([wkWebView.topAnchor.constraint(equalTo: view.topAnchor),
+                                     wkWebView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                                     wkWebView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Constants.contentMargin),
+                                     wkWebView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -Constants.contentMargin)])
+        self.webView = wkWebView
     }
     
     @IBAction func onCameraTap(_ sender: Any) {
@@ -93,21 +80,6 @@ extension DocumentViewerViewController: WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        isDocumentLoading = false
-        presentError(error)
-    }
-}
-
-extension DocumentViewerViewController: UIWebViewDelegate {
-    func webViewDidStartLoad(_ webView: UIWebView) {
-        isDocumentLoading = true
-    }
-    
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        isDocumentLoading = false
-    }
-    
-    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         isDocumentLoading = false
         presentError(error)
     }

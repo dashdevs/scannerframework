@@ -31,6 +31,9 @@
 		071004EC83208487DCACFD6AE1DCE3FC /* CreateOrderProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EB2948A3027D1A11BC3D394B2774E3 /* CreateOrderProductModel.swift */; };
 		0847B381D4E24A26A28CC8B0A8FC59E1 /* IndexPath + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473396E1627B0111767A95F39E3C51D3 /* IndexPath + Extensions.swift */; };
 		0B379DA12B3C4A1876B63E5841855BC8 /* SF-Pro-Text-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 87D595667980BB1B9C6A24BEBE757E7C /* SF-Pro-Text-Thin.otf */; };
+		0D1160822360A1B6003988B9 /* UserOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1160812360A1B6003988B9 /* UserOrderModel.swift */; };
+		0D1160842360A205003988B9 /* UserRoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1160832360A205003988B9 /* UserRoleModel.swift */; };
+		0D83C9172360331D0063C127 /* BranchStoragesDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83C9162360331D0063C127 /* BranchStoragesDescriptor.swift */; };
 		0DE74216235EFFC300CCB588 /* Auth.storyboard in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE9CF4180C8A67693AF647B987F38377 /* Auth.storyboard */; };
 		0DE74217235EFFC300CCB588 /* LoaderView.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49BEFED0A176FA3621032B962E5A3073 /* LoaderView.xib */; };
 		0DE74218235EFFC300CCB588 /* Localizable.strings in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7351EB94333018D07105410B280942DF /* Localizable.strings */; };
@@ -351,6 +354,9 @@
 		0BB2FC7C566FA74367D3D18518E4939D /* AuthByPhoneDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthByPhoneDescriptor.swift; sourceTree = "<group>"; };
 		0C7BC573C64BDC250AA53DD950CE2126 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = DashdevsNetworking/Classes/Response.swift; sourceTree = "<group>"; };
 		0C98FD751AB6CC0265CEEC6DACCC8A2A /* ResourceBundle-ScannerFramework-ScannerFramework-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-ScannerFramework-ScannerFramework-Info.plist"; sourceTree = "<group>"; };
+		0D1160812360A1B6003988B9 /* UserOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOrderModel.swift; sourceTree = "<group>"; };
+		0D1160832360A205003988B9 /* UserRoleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleModel.swift; sourceTree = "<group>"; };
+		0D83C9162360331D0063C127 /* BranchStoragesDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchStoragesDescriptor.swift; sourceTree = "<group>"; };
 		0FD6F1ABFAF889CC1E5FB05480B8E022 /* StateMachineTableViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StateMachineTableViewController.swift; sourceTree = "<group>"; };
 		111754E092A4AA63723F3C792E63A2A7 /* StorageModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StorageModel.swift; sourceTree = "<group>"; };
 		13E63AE038A56C2AE3900C9A1743A73B /* SF-Pro-Display-RegularItalic.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "SF-Pro-Display-RegularItalic.otf"; sourceTree = "<group>"; };
@@ -465,7 +471,7 @@
 		A9CE416C2D84EC76788EB698EAFB24BC /* Pods-ScannerFramework_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ScannerFramework_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		ABB6D0DD261FB4DBD9A7AB1C8C1646CC /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		AC70F4F5DD7C95451FA7015428135F80 /* BearerTokenAuth.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BearerTokenAuth.swift; path = DashdevsNetworking/Classes/Authorization/BearerTokenAuth.swift; sourceTree = "<group>"; };
-		ACC8017F51292EBE28F5AA5BE261740C /* GetBranchOrdersDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GetBranchOrdersDescriptor.swift; sourceTree = "<group>"; };
+		ACC8017F51292EBE28F5AA5BE261740C /* GetBranchOrdersDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GetBranchOrdersDescriptor.swift; path = ../Orders/GetBranchOrdersDescriptor.swift; sourceTree = "<group>"; };
 		AD5E3C7EC03B3A996CD6C22761AF70BD /* ErrorHandling.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ErrorHandling.swift; path = DashdevsNetworking/Classes/ErrorHandling.swift; sourceTree = "<group>"; };
 		AEC95EE01CEA15EC8C0A99AFA44ECE91 /* NetworkingClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
 		B0DC387AD82D44119F2CAE2BE8D8AB60 /* CreateOrderModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreateOrderModel.swift; sourceTree = "<group>"; };
@@ -925,7 +931,6 @@
 			children = (
 				EEAD7F213430E5E2E1145555C01F8172 /* CreateProductOrderDescriptor.swift */,
 				1FDE39339F187F6E97653423B88C3692 /* DeleteOrderProductDescriptor.swift */,
-				ACC8017F51292EBE28F5AA5BE261740C /* GetBranchOrdersDescriptor.swift */,
 				56E12A52B53CA08B9483BE53A286A84A /* GetDocumentDescriptor.swift */,
 				87A6E9BF139F1FCA1EDF4C657CD3CC7D /* GetOrderProductsRequest.swift */,
 				BC1C38B4D859F7E5B106232C38A19A09 /* UpdateOrderDescriptor.swift */,
@@ -1072,6 +1077,8 @@
 				111754E092A4AA63723F3C792E63A2A7 /* StorageModel.swift */,
 				A3195E60C759E092DCC4D131BD0797C5 /* UpdateOrderModel.swift */,
 				63AAD58642C4FC811266AEF5EF1BD456 /* UploadDocumentModel.swift */,
+				0D1160812360A1B6003988B9 /* UserOrderModel.swift */,
+				0D1160832360A205003988B9 /* UserRoleModel.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1100,6 +1107,8 @@
 		E9F847DF3309E58E86D918E642EC09BE /* Branches */ = {
 			isa = PBXGroup;
 			children = (
+				0D83C9162360331D0063C127 /* BranchStoragesDescriptor.swift */,
+				ACC8017F51292EBE28F5AA5BE261740C /* GetBranchOrdersDescriptor.swift */,
 				50A933768A42625CD7BD7098684238BD /* BranchesDescriptor.swift */,
 				68A342817CD801975C3255753F6E182D /* BranchProductsDescriptor.swift */,
 				CB678AB1633327F0EC24C2917ECC62B5 /* CreateOrderDescriptor.swift */,
@@ -1427,6 +1436,7 @@
 			files = (
 				4C44492B528CEC299A76244EE254FA36 /* AccessModels.swift in Sources */,
 				4AD61D0A11686D1FADF85187748DD94C /* AppError.swift in Sources */,
+				0D83C9172360331D0063C127 /* BranchStoragesDescriptor.swift in Sources */,
 				F42A0DAF2A33499CA38B6CDEB71F37AC /* AssetsConstants.swift in Sources */,
 				3FC26BCA9832116638DC328A6E08EA3F /* AuthByEmailDescriptor.swift in Sources */,
 				1D779D468B9F6B732162ED0D622F49B0 /* AuthByPhoneDescriptor.swift in Sources */,
@@ -1451,6 +1461,7 @@
 				B4AD697485736F404733E2D381A71EC1 /* Data + Extensions.swift in Sources */,
 				AB928FFB1FD4C28B06566DCBD2FAD113 /* DataRepository.swift in Sources */,
 				BF2F891B4CCF46DA59BAEC9804139AB2 /* Date + Extensions.swift in Sources */,
+				0D1160842360A205003988B9 /* UserRoleModel.swift in Sources */,
 				4766BDD2FFECA8223FA912E94B7290DB /* DateFormatter + Extensions.swift in Sources */,
 				799B40C48E7E45E2F4A38E88EC342C4F /* DecimalValidator.swift in Sources */,
 				46AF86EB888E93229F45F96171BDFDFB /* DefaultErrorHandler.swift in Sources */,
@@ -1499,6 +1510,7 @@
 				E623327C977D647C12921563C2A81684 /* Repository.swift in Sources */,
 				E743B026E60BBFD96F71541AE53CDE23 /* RequiredNonEmptyValidator.swift in Sources */,
 				28CAD5FFC00EF831978B85764CBD351B /* ResendCodeDescriptor.swift in Sources */,
+				0D1160822360A1B6003988B9 /* UserOrderModel.swift in Sources */,
 				EBCD08AF70B72F19CE164712EAA0F11F /* ScannerFramework-dummy.m in Sources */,
 				BFC65A66B61BA9CB610C310E2703E48E /* SettingsDescriptor.swift in Sources */,
 				23D515DE9442B5532D6F34FE0A773D66 /* SettingsModel.swift in Sources */,

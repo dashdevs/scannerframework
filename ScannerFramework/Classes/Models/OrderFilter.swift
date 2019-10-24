@@ -42,18 +42,26 @@ public class DateRangeFilter {
 }
 
 public class SelectableOrderFilter {
+    public var storages: [StorageModel]?
     public var dateRange: DateRangeFilter
     
-    init(fromRange: DateRangeFilter = DateRangeFilter()) {
+    init(fromRange: DateRangeFilter = DateRangeFilter(), storages: [StorageModel]? = nil) {
+        self.storages = storages
         dateRange = fromRange
+    }
+    
+    public var storageNames: String {
+        guard let storages = storages, !storages.isEmpty else { return L10n.allTitle }
+        return storages.map { $0.name }.joined(separator: ", ")
     }
 }
 
 public class OrderFilter: SelectableOrderFilter {
     private let type: OrderType
-    public var state: OrderState
+    public var state: OrderState?
+    public var search: String?
     
-    public init(type: OrderType = .inventory, state: OrderState = .notCompleted) {
+    public init(type: OrderType = .inventory, state: OrderState? = nil) {
         self.type = type
         self.state = state
         super.init()
@@ -61,20 +69,23 @@ public class OrderFilter: SelectableOrderFilter {
     
     var queryItems: [URLQueryItem] {
         var queryItems = dateRange.queryItems
-        
-        queryItems.append(contentsOf: [URLQueryItem(name: "Types", value: type.rawValue),
-                                       URLQueryItem(name: "State", value: state.rawValue)])
-        
+        queryItems.append(URLQueryItem(name: "Types", value: type.rawValue))
+        if let stateQueryItem = state?.queryItem {
+            queryItems.append(stateQueryItem)
+        }
+        storages?.forEach { queryItems.append(URLQueryItem(name: "Storages", value: String($0.id))) }
+        search.flatMap { queryItems.append(URLQueryItem(name: "Search", value: $0)) }        
         return queryItems
     }
     
     public var selectableFilters: SelectableOrderFilter {
         get {
-            return SelectableOrderFilter(fromRange: dateRange)
+            return SelectableOrderFilter(fromRange: dateRange, storages: storages)
         }
         
         set {
             dateRange = newValue.dateRange
+            storages = newValue.storages
         }
     }
 }
