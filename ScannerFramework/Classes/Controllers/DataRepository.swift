@@ -105,6 +105,10 @@ public class DataRepository: BaseRepository {
         return "\(currentUserLastName) \(currentUserFirstName) \(currentUserMiddleName)"
     }
     
+    public var currentUserID: ModelID? {
+        return UserDefaults.standard.value(forKey: Constants.currentUserKey) as? ModelID
+    }
+    
     public init() {}
     
     public func setUserProfile(_ userProfile: ProfileModel) {

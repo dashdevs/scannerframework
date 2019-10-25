@@ -8,8 +8,10 @@
 
 import DashdevsNetworking
 
-class DefaultErrorHandler: DetailedErrorHandler {
-    func detailedError(from data: Data?, httpStatus: DashdevsNetworking.NetworkError.HTTPError) -> Error {
+public class DefaultErrorHandler: DetailedErrorHandler {
+    public init() {}
+    
+    public func detailedError(from data: Data?, httpStatus: DashdevsNetworking.NetworkError.HTTPError) -> Error {
         if let data = data {
             do {
                 let detailedError = try JSONDecoder().decode(DetailedNetworkError.self, from: data)
