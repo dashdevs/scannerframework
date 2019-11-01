@@ -24,6 +24,7 @@ public enum Container {
     case orders(OrdersModel)
     case orderProducts(OrderProductsModel)
     case orderProduct(OrderProductModel)
+    case createProduct(OrderProductModel)
     case partners(PartnersModel)
     case updateOrder(OrderModel)
     case order(OrderModel)
