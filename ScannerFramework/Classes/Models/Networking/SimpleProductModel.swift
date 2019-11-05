@@ -17,10 +17,10 @@ public struct SimpleProductModel: Decodable {
     public let count: NSDecimalNumber
     public let articleNo: String?
     public let storage: StorageModel
-    let barCodes: [String]?
-    let tare: Bool
+    public let barCodes: [String]?
+    public let tare: Bool
     // TODO: change to non-optional when backend will be ready
-    let measureUnitType: String?
+    public let measureUnitType: String?
     
     enum CodingKeys: String, CodingKey {
         case id
