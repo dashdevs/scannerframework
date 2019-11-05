@@ -41,7 +41,7 @@ extension DataRepository: OrdersNetworking {
                                          handler: { [weak self] response, _ in
                                             switch response {
                                             case let .success(response):
-                                                self?.handler?.state = .success(.orderProduct(response))
+                                                self?.handler?.state = .success(.deleteProduct(response))
                                             case let .failure(error):
                                                 self?.handler?.state = .failure(error)
                                             }

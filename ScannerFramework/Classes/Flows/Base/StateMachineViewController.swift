@@ -32,6 +32,7 @@ public enum Container {
     case document(GetDocumentModel)
     case storages(StoragesModel)
     case printTag(PrintPriceTagResultModel)
+    case deleteProduct(OrderProductModel)
 }
 
 public protocol StateMachine: AnyObject {
