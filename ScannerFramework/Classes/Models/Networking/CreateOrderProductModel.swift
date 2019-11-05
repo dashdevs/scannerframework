@@ -9,7 +9,7 @@
 import Foundation
 
 public struct CreateOrderProductModel: Encodable {
-    let productID: ModelID
+    public let productID: ModelID
     let price: Double
     let expectedCount: Double
     let actualCount: Double?
