@@ -10,12 +10,14 @@ import Foundation
 
 public struct OrderProductModel: Decodable {
     public let id: Int64
+    public let code: String
     public let name: String
     public let tare: Bool
     public let place: String
     public let expectedCount: NSDecimalNumber
     public let actualCount: NSDecimalNumber?
     public let price: NSDecimalNumber
+    public let expectedPrice: NSDecimalNumber
     public let dueDate: Date?
     public let access: Bool
     public let storageId: Int64
@@ -25,12 +27,14 @@ public struct OrderProductModel: Decodable {
     
     enum CodingKeys: String, CodingKey {
         case id
+        case code
         case name
         case tare
         case place
         case expectedCount
         case actualCount
         case price
+        case expectedPrice
         case dueDate
         case access
         case storageId
@@ -44,6 +48,11 @@ public struct OrderProductModel: Decodable {
         
         guard let priceDouble = try? container.decode(Double.self, forKey: .price) else {
             let context = DecodingError.Context(codingPath: [CodingKeys.price], debugDescription: "Can't decode price")
+            throw DecodingError.dataCorrupted(context)
+        }
+        
+        guard let expectedPriceDouble = try? container.decode(Double.self, forKey: .expectedPrice) else {
+            let context = DecodingError.Context(codingPath: [CodingKeys.expectedPrice], debugDescription: "Can't decode expectedPrice")
             throw DecodingError.dataCorrupted(context)
         }
         
@@ -64,11 +73,13 @@ public struct OrderProductModel: Decodable {
         }
         
         id = try container.decode(Int64.self, forKey: .id)
+        code = try container.decode(String.self, forKey: .code)
         name = try container.decode(String.self, forKey: .name)
         tare = try container.decode(Bool.self, forKey: .tare)
         place = try container.decode(String.self, forKey: .place)
         expectedCount = NSDecimalNumber(value: expectedCountDouble)
         price = NSDecimalNumber(value: priceDouble)
+        expectedPrice = NSDecimalNumber(value: expectedPriceDouble)
         dueDate = try? container.decode(Date.self, forKey: .dueDate)
         access = try container.decode(Bool.self, forKey: .access)
         storageId = try container.decode(Int64.self, forKey: .storageId)
