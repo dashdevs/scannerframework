@@ -25,6 +25,7 @@ class EmailAuthViewController: StateMachineViewController, KeyboardPlaceholderDe
     @IBOutlet private weak var stringStylization: StringStylization!
     
     var onGetAuthCode: ((String) -> Void)?
+    var appType: AppType!
     private var currentTask: URLSessionTask?
     private let repo = Repository()
     private var isGetLinkEnabled = false {
@@ -92,7 +93,7 @@ class EmailAuthViewController: StateMachineViewController, KeyboardPlaceholderDe
     
     private func sendEmailAuthRequest() {
         guard let email = emailTextField.text else { return }
-        currentTask = repo.sendAuthByEmail(email)
+        currentTask = repo.sendAuthByEmail(email, authSource: appType.authSource)
     }
     
     // MARK: - StateMachine

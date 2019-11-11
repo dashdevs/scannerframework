@@ -9,17 +9,17 @@
 import DashdevsNetworking
 
 protocol AuthNetworking {
-    func sendAuthByEmail(_ email: String) -> URLSessionTask
+    func sendAuthByEmail(_ email: String, authSource: String) -> URLSessionTask
     @discardableResult func resendCode(_ key: String) -> URLSessionTask
-    func sendAuthByPhone(_ phoneNumber: String) -> URLSessionTask
+    func sendAuthByPhone(_ phoneNumber: String, authSource: String) -> URLSessionTask
     @discardableResult func sendAuthConfirm(key: String, code: String) -> URLSessionTask
     @discardableResult func getUserProfile() -> URLSessionTask
     @discardableResult func getAppSettings() -> URLSessionTask
 }
 
 extension Repository: AuthNetworking {
-    func sendAuthByEmail(_ email: String) -> URLSessionTask {
-        let endpointDescriptor = AuthByEmailDescriptor(email: email)
+    func sendAuthByEmail(_ email: String, authSource: String) -> URLSessionTask {
+        let endpointDescriptor = AuthByEmailDescriptor(email: email, authSource: authSource)
         handler?.state = .loading
         let urlSessionTask = loader.send(endpointDescriptor,
                                          handler: { [weak self] response, _ in
@@ -48,8 +48,8 @@ extension Repository: AuthNetworking {
         return urlSessionTask
     }
     
-    func sendAuthByPhone(_ phoneNumber: String) -> URLSessionTask {
-        let endpointDescriptor = AuthByPhoneDescriptor(phoneNumber: phoneNumber)
+    func sendAuthByPhone(_ phoneNumber: String, authSource: String) -> URLSessionTask {
+        let endpointDescriptor = AuthByPhoneDescriptor(phoneNumber: phoneNumber, authSource: authSource)
         handler?.state = .loading
         let urlSessionTask = loader.send(endpointDescriptor,
                                          handler: { [weak self] response, _ in

@@ -27,6 +27,7 @@ class PhoneAuthViewController: StateMachineViewController, KeyboardPlaceholderDe
     @IBOutlet private weak var stringStylization: StringStylization!
     
     var onGetAuthCode: ((String) -> Void)?
+    var appType: AppType!
     private var currentTask: URLSessionTask?
     private let repo = Repository()
     private var isGetCodeEnabled = false {
@@ -91,7 +92,7 @@ class PhoneAuthViewController: StateMachineViewController, KeyboardPlaceholderDe
     }
     
     private func sendAuthByPhoneNumber() {
-        currentTask = repo.sendAuthByPhone(phoneNumber)
+        currentTask = repo.sendAuthByPhone(phoneNumber, authSource: appType.authSource)
     }
     
     private func isOnlyPhoneCharacters(in string: String) -> Bool {

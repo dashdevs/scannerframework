@@ -12,10 +12,6 @@ class AuthByEmailDescriptor: RequestDescriptor {
     typealias Resource = AuthCodeModel
     typealias Parameters = AuthByEmailModel
     
-    private struct Constants {
-        static let authSource = "IosApp"
-    }
-    
     var path: Endpoint
     var method: HTTPMethod
     var response: Deserializator<AuthCodeModel>
@@ -24,9 +20,9 @@ class AuthByEmailDescriptor: RequestDescriptor {
     var versionPath: Path?
     lazy var detailedErrorHandler: DetailedErrorHandler? = DefaultErrorHandler()
     
-    init(email: String) {
+    init(email: String, authSource: String) {
         versionPath = Path(["api", "v1"])
-        parameters = AuthByEmailModel(email: email, source: Constants.authSource)
+        parameters = AuthByEmailModel(email: email, source: authSource)
         path = Endpoint(path: "auth/email")
         method = .post
         response = Deserializator<AuthCodeModel>.json
