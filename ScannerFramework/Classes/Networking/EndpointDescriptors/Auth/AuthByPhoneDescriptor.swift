@@ -12,10 +12,6 @@ class AuthByPhoneDescriptor: RequestDescriptor {
     typealias Resource = AuthCodeModel
     typealias Parameters = AuthByPhoneModel
     
-    private struct Constants {
-        static let authSource = "IosApp"
-    }
-    
     var path: Endpoint
     var method: HTTPMethod
     var response: Deserializator<AuthCodeModel>
@@ -24,9 +20,9 @@ class AuthByPhoneDescriptor: RequestDescriptor {
     var versionPath: Path?
     lazy var detailedErrorHandler: DetailedErrorHandler? = DefaultErrorHandler()
     
-    init(phoneNumber: String) {
+    init(phoneNumber: String, authSource: String) {
         versionPath = Path(["api", "v1"])
-        parameters = AuthByPhoneModel(phoneNumber: phoneNumber, source: Constants.authSource)
+        parameters = AuthByPhoneModel(phoneNumber: phoneNumber, source: authSource)
         path = Endpoint(path: "auth/phone")
         method = .post
         response = Deserializator<AuthCodeModel>.json

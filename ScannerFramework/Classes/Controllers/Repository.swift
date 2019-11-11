@@ -19,20 +19,22 @@ public class BaseRepository {
     }
     
     func handle(_ error: Error, refreshHandler: @escaping () -> Void) {
-        if let error = error as? NetworkError.HTTPError, case .unautorized = error {
+        var httpError = error as? NetworkError.HTTPError
+        if httpError == nil, let detailedError = error as? DetailedNetworkError {
+            httpError = detailedError.sourceError
+        }
+        if let error = httpError, case .unautorized = error {
             if authController.canRefresh {
-                authController.refreshToken { [weak self] authResult in
+                authController.refreshToken { authResult in
                     switch authResult {
                     case .success:
                         refreshHandler()
                     case .failure:
-                        self?.handler?.state = .failure(error)
                         NotificationCenter.default.post(name: .logout, object: nil)
                     }
                     refreshHandler()
                 }
             } else {
-                handler?.state = .failure(error)
                 NotificationCenter.default.post(name: .logout, object: nil)
             }
         } else {

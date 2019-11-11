@@ -23,6 +23,10 @@ public enum AppType {
     var availableAccess: [AccessType] {
         return self == .goodsScanner ? AccessType.goodsScannerAccessRequirements : AccessType.receiptScanAccessRequirements
     }
+    
+    var authSource: String {
+        return self == .goodsScanner ? "ScreenScannerIosApp" : "InventoryScanIosApp"
+    }
 }
 
 public final class AuthFlowCoordinator: Coordinator {
@@ -51,6 +55,7 @@ public final class AuthFlowCoordinator: Coordinator {
     
     private func startAuthByEmail() {
         let emailAuthViewController = StoryboardScene.Auth.emailAuth.instantiate()
+        emailAuthViewController.appType = appType
         emailAuthViewController.onGetAuthCode = { [weak self] authKey in
             self?.currentAuthKey = authKey
             self?.showEmailConfirm()
@@ -60,6 +65,7 @@ public final class AuthFlowCoordinator: Coordinator {
     
     private func startAuthByPhone() {
         let phoneAuthViewController = StoryboardScene.Auth.phoneAuth.instantiate()
+        phoneAuthViewController.appType = appType
         phoneAuthViewController.onGetAuthCode = { [weak self] authKey in
             self?.currentAuthKey = authKey
             self?.showPhoneConfirm()
