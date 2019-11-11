@@ -28,7 +28,7 @@ extension DataRepository: BranchesNetworking {
                                                 self?.handler?.state = .success(.branches(response))
                                             case let .failure(error):
                                                 self?.handle(error) {
-                                                    self?.getBranches(filter: filter, offset: offset)
+                                                    _ = self?.getBranches(filter: filter, offset: offset)
                                                 }
                                             }
         })

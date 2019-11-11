@@ -11,6 +11,7 @@ import DashdevsNetworking
 public struct DetailedNetworkError: Decodable, LocalizedError {
     let errorCode: Int
     let message: String
+    let sourceError: DashdevsNetworking.NetworkError.HTTPError?
     public var errorDescription: String? {
         return message
     }
@@ -24,10 +25,12 @@ public struct DetailedNetworkError: Decodable, LocalizedError {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         errorCode = try container.decode(Int.self, forKey: .ErrorCode)
         message = try container.decode(String.self, forKey: .Message)
+        sourceError = nil
     }
     
     public init(httpError: DashdevsNetworking.NetworkError.HTTPError) {
         errorCode = 0
+        sourceError = httpError
         switch httpError {
         case .client:
             message = "Client request error"
