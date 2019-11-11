@@ -9,6 +9,11 @@
 import DashdevsNetworking
 
 public struct DetailedNetworkError: Decodable, LocalizedError {
+    private struct Constants {
+        static let noUserRoleCode: Int = 10065
+        static let noUserRoleMessage = "Отказано в доступе"
+    }
+    
     let errorCode: Int
     let message: String
     let sourceError: DashdevsNetworking.NetworkError.HTTPError?
@@ -24,7 +29,12 @@ public struct DetailedNetworkError: Decodable, LocalizedError {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         errorCode = try container.decode(Int.self, forKey: .ErrorCode)
-        message = try container.decode(String.self, forKey: .Message)
+        switch errorCode {
+        case Constants.noUserRoleCode:
+            message = Constants.noUserRoleMessage
+        default:
+            message = try container.decode(String.self, forKey: .Message)
+        }
         sourceError = nil
     }
     
