@@ -85,9 +85,11 @@ extension Repository: AuthNetworking {
                                          handler: { [weak self] response, _ in
                                              switch response {
                                              case let .success(response):
-                                                 self?.handler?.state = .success(.profile(response))
+                                                self?.handler?.state = .success(.profile(response))
                                              case let .failure(error):
-                                                 self?.handler?.state = .failure(error)
+                                                self?.handle(error) {
+                                                    self?.getUserProfile()
+                                                }
                                              }
         })
         return urlSessionTask
@@ -100,9 +102,11 @@ extension Repository: AuthNetworking {
                                          handler: { [weak self] response, _ in
                                              switch response {
                                              case let .success(response):
-                                                 self?.handler?.state = .success(.settings(response))
+                                                self?.handler?.state = .success(.settings(response))
                                              case let .failure(error):
-                                                 self?.handler?.state = .failure(error)
+                                                self?.handle(error) {
+                                                    self?.getAppSettings()
+                                                }
                                              }
         })
         return urlSessionTask

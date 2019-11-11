@@ -27,7 +27,9 @@ extension DataRepository: BranchesNetworking {
                                             case let .success(response):
                                                 self?.handler?.state = .success(.branches(response))
                                             case let .failure(error):
-                                                self?.handler?.state = .failure(error)
+                                                self?.handle(error) {
+                                                    self?.getBranches(filter: filter, offset: offset)
+                                                }
                                             }
         })
         return urlSessionTask
@@ -42,7 +44,9 @@ extension DataRepository: BranchesNetworking {
                                             case let .success(response):
                                                 self?.handler?.state = .success(.products(response))
                                             case let .failure(error):
-                                                self?.handler?.state = .failure(error)
+                                                self?.handle(error) {
+                                                    self?.getProduct(branchID: branchID, filter: filter, barCode: barCode, offset: offset)
+                                                }
                                             }
         })
         return urlSessionTask
@@ -57,7 +61,9 @@ extension DataRepository: BranchesNetworking {
                                             case let .success(response):
                                                 self?.handler?.state = .success(.order(response))
                                             case let .failure(error):
-                                                self?.handler?.state = .failure(error)
+                                                self?.handle(error) {
+                                                    self?.createOrder(branchId: branchId, orderType: orderType, date: date)
+                                                }
                                             }
         })
         return urlSessionTask
@@ -70,9 +76,11 @@ extension DataRepository: BranchesNetworking {
                                          handler: { [weak self] response, _ in
                                              switch response {
                                              case let .success(response):
-                                                 self?.handler?.state = .success(.orders(response))
+                                                self?.handler?.state = .success(.orders(response))
                                              case let .failure(error):
-                                                 self?.handler?.state = .failure(error)
+                                                self?.handle(error) {
+                                                    self?.getBranchOrders(for: branchID, filters: filters, offset: offset)
+                                                }
                                              }
         })
         return urlSessionTask
@@ -87,7 +95,9 @@ extension DataRepository: BranchesNetworking {
                                             case let .success(response):
                                                 self?.handler?.state = .success(.partners(response))
                                             case let .failure(error):
-                                                self?.handler?.state = .failure(error)
+                                                self?.handle(error) {
+                                                    self?.getBranchPartners(for: branchID, filter: filter, offset: offset)
+                                                }
                                             }
         })
         return urlSessionTask
@@ -103,7 +113,9 @@ extension DataRepository: BranchesNetworking {
                                                 self?.cachedBranchStorages = response
                                                 self?.handler?.state = .success(.storages(response))
                                             case let .failure(error):
-                                                self?.handler?.state = .failure(error)
+                                                self?.handle(error) {
+                                                    self?.getBranchStorages(for: branchID)
+                                                }
                                             }
         })
         return urlSessionTask

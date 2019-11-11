@@ -28,7 +28,9 @@ extension DataRepository: OrdersNetworking {
                                             case let .success(response):
                                                 self?.handler?.state = .success(.orderProducts(response))
                                             case let .failure(error):
-                                                self?.handler?.state = .failure(error)
+                                                self?.handle(error) {
+                                                    self?.getOrderProducts(for: orderID)
+                                                }
                                             }
         })
         return urlSessionTask
@@ -43,7 +45,9 @@ extension DataRepository: OrdersNetworking {
                                             case let .success(response):
                                                 self?.handler?.state = .success(.deleteProduct(response))
                                             case let .failure(error):
-                                                self?.handler?.state = .failure(error)
+                                                self?.handle(error) {
+                                                    self?.deleteOrderProduct(orderID: orderID, productID: productID)
+                                                }
                                             }
         })
         return urlSessionTask
@@ -58,7 +62,9 @@ extension DataRepository: OrdersNetworking {
                                             case let .success(response):
                                                 self?.handler?.state = .success(.updateOrder(response))
                                             case let .failure(error):
-                                                self?.handler?.state = .failure(error)
+                                                self?.handle(error) {
+                                                    self?.updateOrder(orderId: orderId, updateModel: updateModel)
+                                                }
                                             }
         })
         return urlSessionTask
@@ -73,7 +79,9 @@ extension DataRepository: OrdersNetworking {
                                             case let .success(response):
                                                 self?.handler?.state = .success(.createProduct(response))
                                             case let .failure(error):
-                                                self?.handler?.state = .failure(error)
+                                                self?.handle(error) {
+                                                    self?.createOrderProduct(orderId: orderId, model: model)
+                                                }
                                             }
         })
         return urlSessionTask
@@ -88,7 +96,9 @@ extension DataRepository: OrdersNetworking {
                                             case let .success(response):
                                                 self?.handler?.state = .success(.orderProduct(response))
                                             case let .failure(error):
-                                                self?.handler?.state = .failure(error)
+                                                self?.handle(error) {
+                                                    self?.updateProductOrder(orderID: orderID, productID: productID, model: model)
+                                                }
                                             }
         })
         return urlSessionTask
@@ -103,7 +113,9 @@ extension DataRepository: OrdersNetworking {
                                             case let .success(response):
                                                 self?.handler?.state = .success(.order(response))
                                             case let .failure(error):
-                                                self?.handler?.state = .failure(error)
+                                                self?.handle(error) {
+                                                    self?.uploadDocument(orderID: orderID, model: model)
+                                                }
                                             }
         })
         return urlSessionTask
@@ -118,7 +130,9 @@ extension DataRepository: OrdersNetworking {
                                             case let .success(response):
                                                 self?.handler?.state = .success(.document(response))
                                             case let .failure(error):
-                                                self?.handler?.state = .failure(error)
+                                                self?.handle(error) {
+                                                    self?.getOrderDocument(orderId: orderId)
+                                                }
                                             }
         })
         return urlSessionTask
