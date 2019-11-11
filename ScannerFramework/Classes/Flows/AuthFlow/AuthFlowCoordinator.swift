@@ -17,11 +17,6 @@ extension NSNotification.Name {
 }
 
 public enum AppType {
-    private struct Constants {
-        static let goodsScannerSource = "ScreenScannerIosApp";
-        static let receiptScanSource = "InventoryScanIosApp";
-    }
-    
     case goodsScanner
     case receiptScan
     
@@ -30,7 +25,7 @@ public enum AppType {
     }
     
     var authSource: String {
-        return self == .goodsScanner ? Constants.goodsScannerSource : Constants.receiptScanSource
+        return self == .goodsScanner ? "ScreenScannerIosApp" : "InventoryScanIosApp"
     }
 }
 
