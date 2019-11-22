@@ -76,7 +76,7 @@ public struct OrderProductModel: Decodable {
         code = try container.decode(String.self, forKey: .code)
         name = try container.decode(String.self, forKey: .name)
         tare = try container.decode(Bool.self, forKey: .tare)
-        place = try container.decode(String.self, forKey: .place)
+        place = (try? container.decode(String.self, forKey: .place)) ?? ""
         expectedCount = NSDecimalNumber(value: expectedCountDouble)
         price = NSDecimalNumber(value: priceDouble)
         expectedPrice = NSDecimalNumber(value: expectedPriceDouble)
