@@ -12,7 +12,7 @@ extension DateFormatter {
     public static var dottedYearMonthDayFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone.current
-        formatter.dateFormat = "dd.MM.YYYY"
+        formatter.dateFormat = "dd.MM.yyyy"
         return formatter
     }()
     
