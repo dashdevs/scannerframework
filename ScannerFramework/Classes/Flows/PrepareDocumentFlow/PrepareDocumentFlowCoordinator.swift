@@ -19,7 +19,7 @@ public final class PrepareDocumentFlowCoordinator: Coordinator {
     
     public func start() {}
     
-    public func startDocumentFlow(prepareDocumentInfo: PrepareDocumentInfo) {
+    public func startDocumentFlow(prepareDocumentInfo: PrepareDocumentInfo, unfinishedProducts: [OrderProductModel]? = nil) {
         showCamera { [weak self] image in
             self?.showGallery(for: prepareDocumentInfo, with: image)
         }
