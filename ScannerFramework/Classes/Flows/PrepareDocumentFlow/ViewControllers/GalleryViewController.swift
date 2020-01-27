@@ -33,6 +33,7 @@ class GalleryViewController: StateMachineCollectionViewController {
     var prepareDocumentInfo: PrepareDocumentInfo!
     var doneAction: (() -> Void)?
     var photoAction: (() -> Void)?
+    var unfinishedProducts: [OrderProductModel]?
     
     private let repo = DataRepository()
     
@@ -106,13 +107,35 @@ class GalleryViewController: StateMachineCollectionViewController {
         collectionView.reloadData()
     }
     
+    private func finishProducts() {
+        guard let productModel = unfinishedProducts?.first else {
+            uploadDocument()
+            return
+        }
+        var dueDate: Int?
+        if let dueDateSeconds = productModel.dueDate?.timeIntervalSince1970 {
+            dueDate = Int(dueDateSeconds)
+        }
+        repo.updateProductOrder(orderID: prepareDocumentInfo.orderId,
+                                productID: productModel.id,
+                                model: ProductUpdateModel(price: productModel.expectedPrice.doubleValue,
+                                                          expectedCount: productModel.expectedCount.doubleValue,
+                                                          actualCount: productModel.expectedCount.doubleValue,
+                                                          dueDate: dueDate))
+    }
+    
     // MARK: - Actions
     
     @IBAction func onCancelTap(_ sender: Any) {
+        finishProducts()
         onClose()
     }
     
     @IBAction func onDoneTap(_ sender: Any) {
+        guard unfinishedProducts?.isEmpty == false else {
+            finishProducts()
+            return
+        }
         uploadDocument()
     }
     
@@ -128,6 +151,19 @@ class GalleryViewController: StateMachineCollectionViewController {
     
     override func handleContainer(_ container: Container) {
         isLoading = false
+        switch container {
+        case .order: onClose()
+        case let Container.orderProduct(productModel):
+            guard let index = unfinishedProducts?.firstIndex(where: { model in
+                model.id == productModel.id
+            }) else {
+                finishProducts()
+                return
+            }
+            unfinishedProducts?.remove(at: index)
+            finishProducts()
+        default: super.handleContainer(container)
+        }
         guard case Container.order = container else { return }
         onClose()
     }

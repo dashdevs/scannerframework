@@ -21,7 +21,7 @@ public final class PrepareDocumentFlowCoordinator: Coordinator {
     
     public func startDocumentFlow(prepareDocumentInfo: PrepareDocumentInfo, unfinishedProducts: [OrderProductModel]? = nil) {
         showCamera { [weak self] image in
-            self?.showGallery(for: prepareDocumentInfo, with: image)
+            self?.showGallery(for: prepareDocumentInfo, with: image, unfinishedProducts: unfinishedProducts)
         }
     }
     
@@ -35,7 +35,7 @@ public final class PrepareDocumentFlowCoordinator: Coordinator {
         router.present(viewControllerWithNavbar, animated: true)
     }
     
-    private func showGallery(for prepareDocumentInfo: PrepareDocumentInfo, with image: UIImage) {
+    private func showGallery(for prepareDocumentInfo: PrepareDocumentInfo, with image: UIImage, unfinishedProducts: [OrderProductModel]? = nil) {
         let galleryViewController = StoryboardScene.PrepareDocument.gallery.instantiate()
         galleryViewController.prepareDocumentInfo = prepareDocumentInfo
         galleryViewController.addImage(image)
