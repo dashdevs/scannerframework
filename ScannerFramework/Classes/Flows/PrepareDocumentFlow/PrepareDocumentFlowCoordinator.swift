@@ -38,6 +38,7 @@ public final class PrepareDocumentFlowCoordinator: Coordinator {
     private func showGallery(for prepareDocumentInfo: PrepareDocumentInfo, with image: UIImage, unfinishedProducts: [OrderProductModel]? = nil) {
         let galleryViewController = StoryboardScene.PrepareDocument.gallery.instantiate()
         galleryViewController.prepareDocumentInfo = prepareDocumentInfo
+        galleryViewController.unfinishedProducts = unfinishedProducts
         galleryViewController.addImage(image)
         galleryViewController.photoAction = { [weak self, weak galleryViewController] in
             self?.showCamera { image in
