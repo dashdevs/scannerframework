@@ -127,16 +127,15 @@ class GalleryViewController: StateMachineCollectionViewController {
     // MARK: - Actions
     
     @IBAction func onCancelTap(_ sender: Any) {
-        finishProducts()
         onClose()
     }
     
     @IBAction func onDoneTap(_ sender: Any) {
         guard unfinishedProducts?.isEmpty == false else {
-            finishProducts()
+            uploadDocument()
             return
         }
-        uploadDocument()
+        finishProducts()
     }
     
     @IBAction func onDeleteTap(_ sender: Any) {
