@@ -12,9 +12,9 @@ public struct ProductUpdateModel: Encodable {
     let price: Double
     let expectedCount: Double
     let actualCount: Double?
-    let dueDate: Int?
+    let dueDate: Int64?
     
-    public init(price: Double, expectedCount: Double, actualCount: Double?, dueDate: Int?) {
+    public init(price: Double, expectedCount: Double, actualCount: Double?, dueDate: Int64?) {
         self.price = price
         self.expectedCount = expectedCount
         self.actualCount = actualCount

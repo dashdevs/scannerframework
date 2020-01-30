@@ -112,9 +112,9 @@ class GalleryViewController: StateMachineCollectionViewController {
             uploadDocument()
             return
         }
-        var dueDate: Int?
+        var dueDate: Int64?
         if let dueDateSeconds = productModel.dueDate?.timeIntervalSince1970 {
-            dueDate = Int(dueDateSeconds)
+            dueDate = Int64(dueDateSeconds)
         }
         repo.updateProductOrder(orderID: prepareDocumentInfo.orderId,
                                 productID: productModel.id,
@@ -163,8 +163,6 @@ class GalleryViewController: StateMachineCollectionViewController {
             finishProducts()
         default: super.handleContainer(container)
         }
-        guard case Container.order = container else { return }
-        onClose()
     }
     
     override func handleErrors(_ error: Error) {
