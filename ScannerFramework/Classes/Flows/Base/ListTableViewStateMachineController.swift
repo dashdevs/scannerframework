@@ -12,6 +12,7 @@ public enum GetRequestOperationType: Int {
     case filter
     case refresh
     case load
+    case search
 }
 
 private struct Constants {

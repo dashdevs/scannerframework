@@ -88,4 +88,12 @@ public class OrderFilter: SelectableOrderFilter {
             storages = newValue.storages
         }
     }
+    
+    public var filterTillToday: OrderFilter {
+        let filter = OrderFilter(type: type, state: state)
+        filter.search = search
+        filter.selectableFilters.storages = selectableFilters.storages
+        filter.selectableFilters.dateRange.fromDate = Date(timeIntervalSince1970: 0)
+        return filter
+    }
 }
