@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ScannerFramework'
-  s.version          = '0.1.21'
+  s.version          = '0.1.22'
   s.summary          = 'ScannerFramework for GoodsScanner & ReceiptScan'
   s.homepage         = 'https://dashdevs.com'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }

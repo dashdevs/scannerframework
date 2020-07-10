@@ -1,5 +1,5 @@
-source 'https://bitbucket.org/itomych/ddspecs.git'
 source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/itomych/dashdevsnetworking.git'
 
 use_frameworks!
 
