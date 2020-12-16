@@ -8,12 +8,12 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ScannerFramework'
-  s.version          = '0.1.22'
+  s.version          = '0.1.23'
   s.summary          = 'ScannerFramework for GoodsScanner & ReceiptScan'
   s.homepage         = 'https://dashdevs.com'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'dashdevs llc' => 'hello@dashdevs.com' }
-  s.source           = { :git => 'https://github.com/itomych/scannerframework.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/dashdevs/scannerframework.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
 
