@@ -13,6 +13,7 @@ protocol AuthNetworking {
     @discardableResult func resendCode(_ key: String) -> URLSessionTask
     func sendAuthByPhone(_ phoneNumber: String, authSource: String) -> URLSessionTask
     @discardableResult func sendAuthConfirm(key: String, code: String) -> URLSessionTask
+    @discardableResult func sendAuthByEmailPassword(email: String, password: String) -> URLSessionTask
     @discardableResult func getUserProfile() -> URLSessionTask
     @discardableResult func getAppSettings() -> URLSessionTask
 }
