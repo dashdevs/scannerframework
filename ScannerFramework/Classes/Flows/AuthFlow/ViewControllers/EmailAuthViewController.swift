@@ -35,6 +35,8 @@ class EmailAuthViewController: StateMachineViewController, KeyboardPlaceholderDe
         }
     }
     
+    private let demoEmail = "screenscannerreview@gmail.com"
+    
     private var isLoading: Bool = false {
         didSet {
             showLoading(isLoading)
@@ -93,7 +95,13 @@ class EmailAuthViewController: StateMachineViewController, KeyboardPlaceholderDe
     
     private func sendEmailAuthRequest() {
         guard let email = emailTextField.text else { return }
-        currentTask = repo.sendAuthByEmail(email, authSource: appType.authSource)
+        
+        // SPIKE - Block of code for Apple review
+        if email == demoEmail {
+            onGetAuthCode?(email)
+        } else {
+            currentTask = repo.sendAuthByEmail(email, authSource: appType.authSource)
+        }
     }
     
     // MARK: - StateMachine

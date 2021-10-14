@@ -34,6 +34,9 @@ class BaseAuthConfirmViewController: StateMachineViewController, KeyboardPlaceho
     var onFinishAuth: ((ProfileModel) -> Void)?
     var appType: AppType!
     
+    private let demoEmail = "screenscannerreview@gmail.com"
+    private let demoPassword = "5yVghPnU85gDUxfy"
+    
     private var timerBlockResend: Timer?
     private let repo = Repository()
     private var timeBlockResendStarted: Date!
@@ -73,6 +76,12 @@ class BaseAuthConfirmViewController: StateMachineViewController, KeyboardPlaceho
         localize()
         setup()
         startBlockResend()
+        
+        // SPIKE - Block of code for Apple review
+        if currentAuthKey == demoEmail {
+            codeTextField.isUserInteractionEnabled = false
+            sendAuthByEmailPassword()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -152,6 +161,12 @@ class BaseAuthConfirmViewController: StateMachineViewController, KeyboardPlaceho
         guard let code = codeTextField.text else { return }
         isLoginEnabled = false
         repo.sendAuthConfirm(key: currentAuthKey, code: code)
+    }
+    
+    // SPIKE - Block of code for Apple review
+    private func sendAuthByEmailPassword() {
+        isLoginEnabled = false
+        repo.sendAuthByEmailPassword(email: demoEmail, password: demoPassword)
     }
     
     // MARK: - StateMachine
