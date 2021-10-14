@@ -78,6 +78,21 @@ extension Repository: AuthNetworking {
         return urlSessionTask
     }
     
+    @discardableResult func sendAuthByEmailPassword(email: String, password: String) -> URLSessionTask {
+        let endpointDescriptor = AuthByEmailPasswordDescriptor(email: email, password: password)
+        handler?.state = .loading
+        let urlSessionTask = loader.send(endpointDescriptor,
+                                         handler: { [weak self] response, _ in
+                                             switch response {
+                                             case let .success(result):
+                                                 self?.handler?.state = .success(.accessToken(result))
+                                             case let .failure(error):
+                                                 self?.handler?.state = .failure(error)
+                                             }
+        })
+        return urlSessionTask
+    }
+    
     @discardableResult func getUserProfile() -> URLSessionTask {
         let endpointDescriptor = ProfileDescriptor()
         handler?.state = .loading

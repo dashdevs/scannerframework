@@ -27,6 +27,11 @@ struct AuthConfirmModel: Encodable {
     let code: String
 }
 
+struct AuthByEmailPasswordModel: Encodable {
+    let email: String
+    let password: String
+}
+
 public struct AccessToken: Decodable {
     let accessToken: String
     let tokenType: String
